@@ -1,31 +1,54 @@
-import java.util.HashMap;
 import java.util.Date;
+import java.time.LocalDate;
+import java.io.Serializable;
+import java.time.format.DateTimeFormatter;
+import java.time.DateTimeException;
 
 
-public class Task {
+
+public class Task implements Serializable{
+    // holds the name of a task and it cannot be empty
     private String name;
+    // holds the name of project associated with task, it could be an empty string.
     private String project;
-    private Date deadline;
+    // The due date of the task as yyyy-mm-dd format
+    private LocalDate deadline;
+    //if true task is completed
 	private boolean isDone;
 
+    public Task(String name, String project, LocalDate deadline) {
 
+    }
+
+    //returns the task name
    public String getName() {
-       return name;
+       return this.name;
    }
-
-   public void setName() {
+    //sets the name of a task
+   public void setName(String name) throws NullPointerException {
+       if (name.trim().equals("") || name == null) {
+           throw new NullPointerException("REQUIRED: Task name can not be empty.");
+       }
        this.name = name;
     }
 
-   public Date getDeadline(){
+   public LocalDate getDeadline(){
+
        return deadline;
    }
-    public void setDeadline(Date deadline){
-       this.deadline = deadline;
+    public void setDeadline(LocalDate deadline)throws DateTimeException {
+        // Throws DateTimeException if past date is given
+        if (deadline.compareTo(LocalDate.now())<0) {
+            throw new DateTimeException("Past Date not allowed");
+        }
+        //Ensure format is yyyy-MM-dd
+        DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.deadline = LocalDate.parse(deadline.format(formattedDate));
     }
 
     public String getProject(){
-       return project;
+
+       return this.project;
     }
     public void setProject(String project){
        this.project = project;
@@ -33,10 +56,31 @@ public class Task {
     }
 
     public boolean isDone() {
-       return isDone;
+
+       return this.isDone;
     }
-    public void setDone(boolean isDone){
-       this.isDone =isDone;
+    //marks a task as completed
+    public boolean setDone(){
+       this.isDone = true;
+       return this.isDone;
+    }
+    //marks a task as incomplete
+    public boolean setNotDone(){
+        this.isDone = false;
+        return this.isDone;
+    }
+
+    /**
+     * Gets the task data as formatted string
+     * @return formatted string of all fields of a task
+     */
+    public String formattedStringOfTask() {
+        return (
+                "\nTask     : " + name +
+                        "\nProject   : " + project +
+                        "\nStatus    : " + (isDone?"Done":"Not done") +
+                        "\nDeadline  : " + deadline +
+                        "\n");
     }
 
 
