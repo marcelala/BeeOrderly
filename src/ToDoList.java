@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 
 
-
 public class ToDoList {
     String project;
     private ArrayList<Task> taskList;
@@ -53,8 +52,6 @@ public class ToDoList {
             Menu.showMessage(e.getMessage());
             return false;
         }
-
-
 
 
 
