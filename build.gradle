@@ -1,14 +1,38 @@
+/*
+    1.Java plugin adds java compilation along with testing and bundling capabilities
+        Read more at https://docs.gradle.org/current/userguide/java_plugin.html
+    2.The Application plugin facilitates creating an executable JVM application.
+        Read more at https://docs.gradle.org/current/userguide/application_plugin.html
+ */
 plugins {
     id 'java'
     id 'idea'
 }
+/*
+    This specifies a mandatory configuration for the plugin application.
+    The configuration shows the entry point of the application/project.
+ */
+//application{
+  //  mainClass = "sda.to-do-list.Main"
+//}
+
+
 
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+
+/*
+        This shows from where the dependencies are going to be pulled from
+*/
 repositories {
     mavenCentral()
 }
+
+
+/*
+    what is this?
+ */
 sourceSets {
     main {
         java {
@@ -16,6 +40,12 @@ sourceSets {
         }
     }
 }
+
+/*
+    Dependencies are requirements for building your application/library itself
+    Here the dependency is JUnit
+ */
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
@@ -23,5 +53,16 @@ dependencies {
 jar {
     manifest {
         attributes 'Main-Class': 'to-do-list.Main'
+    }
+}
+
+
+/*
+    For the build to understand that JUnit be used for testing
+ */
+test {
+    useJUnitPlatform()
+    testLogging {
+        events 'PASSED', 'SKIPPED', 'FAILED'
     }
 }
