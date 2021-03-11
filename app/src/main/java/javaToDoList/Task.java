@@ -21,24 +21,32 @@ public class Task implements Serializable{
 
     public Task(String name, String project, LocalDate deadline) {
 
+        this.setName(name);
+        this.setProject(project);
+        this.isDone = false;
+        this.setDeadline(deadline);
+
+
     }
 
     //returns the task name
    public String getName() {
        return this.name;
    }
+
     //sets the name of a task
    public void setName(String name) throws NullPointerException {
        if (name.trim().equals("") || name == null) {
            throw new NullPointerException("REQUIRED: Task name can not be empty.");
        }
-       this.name = name;
+       this.name = name.trim();
     }
-
+    //get deadline
    public LocalDate getDeadline(){
 
        return deadline;
    }
+   // edit a deadline
     public void setDeadline(LocalDate deadline)throws DateTimeException {
         // Throws DateTimeException if past date is given
         if (deadline.compareTo(LocalDate.now())<0) {
@@ -48,20 +56,23 @@ public class Task implements Serializable{
         DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.deadline = LocalDate.parse(deadline.format(formattedDate));
     }
-
+// gets project name
     public String getProject(){
 
        return this.project;
     }
+
+    //sets the name of a project
     public void setProject(String project){
-       this.project = project;
+       this.project = project.trim();
 
     }
-
+    // is the task done?
     public boolean isDone() {
 
        return this.isDone;
     }
+
     //marks a task as completed
     public boolean setDone(){
        this.isDone = true;

@@ -5,6 +5,10 @@
  * For more details take a look at the 'Building Java & JVM projects' chapter in the Gradle
  * User Manual available at https://docs.gradle.org/6.8.3/userguide/building_java_projects.html
  */
+import groovy.time.TimeCategory
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
@@ -50,6 +54,8 @@ application {
     // Define the main class for the application.
     mainClass = 'java.to.do.list.Main'
 }
+
+
 
 tasks.named('test') {
     // Use junit platform for unit tests.
