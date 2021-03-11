@@ -32,9 +32,7 @@ public class Main {
                         //toDoList.readTaskFromUser();
                         break;
                     case "3":
-                       // toDoList.listAllTasksWithIndex();
                         Menu.editTaskSelection();
-                        //toDoList.editTask(input.nextLine());
                         break;
                     case "4":
                         break;

@@ -64,7 +64,7 @@ public static void mainMenu() {
      * Goodbye message
      */
     public static void  byeMessage() {
-        System.out.println(">>> All tasks are saved");
+        System.out.println(">>> Your tasks are saved");
         System.out.println(">>> Goodbye");
     }
 
@@ -76,6 +76,15 @@ public static void mainMenu() {
         System.out.println(">>> Invalid choice: Please type a number from the menu ");
     }
 
+    /**
+     * This message will print the given character on terminal to given number of times
+     * @param charToPrint a character given in single quote to print, i.e., '='
+     * @param times an integer to repeat printing the given character
+     */
+    public static void separator (char charToPrint, int times) {
+        for (int index=0; index<times; index++) System.out.print(charToPrint);
+        System.out.println("");
+    }
 
 
 }
