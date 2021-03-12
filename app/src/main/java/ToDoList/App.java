@@ -1,4 +1,4 @@
-package javaToDoList;
+package main.java.ToDoList;
 
 
 import java.util.Scanner;
@@ -7,7 +7,14 @@ import java.util.Scanner;
 
 public class App {
     // A string to hold the data file name which contains all tasks and their details
-    public static String filename = "tasks.obj";
+    //public static String filename = "tasks.txt";
+    private ToDoList taskList;
+
+    public App(){
+        this.taskList = new ToDoList();
+
+    }
+
 
     //main method of the app
     public static void main(String[] args) {
@@ -33,7 +40,7 @@ public class App {
                 switch (menuChoice) {
                     case "1":
                         Menu.listAllTasksMenu();
-                        toDoList.listAllTasks(input.nextLine());
+                       // toDoList.listAllTasks(input.nextLine());
                         break;
                     case "2":
                         toDoList.readTaskFromUser();
@@ -44,23 +51,26 @@ public class App {
                         toDoList.editTask(input.nextLine());
                         break;
                     case "4":
+                        //FileManager fileManager = new FileManager(taskList);
+                        //fileManager.saveToFile();
                         break;
 
                     default:
                         Menu.unknownMessage();
+                        input.close();
+
                 }
-                input.close();
 
             }
-            toDoList.saveToFile(filename);
+            //toDoList.saveToFile(filename);
             Menu.byeMessage();
 
         }catch (Exception e) {
             Menu.showMessage("UNCAUGHT EXCEPTION THROWN");
-            System.out.println("Trying to write the unsaved data of all tasks in data file");
-            toDoList.saveToFile(filename);
+            System.out.println("Problem while trying to write the unsaved data of all tasks in data file");
+            //toDoList.saveToFile(filename);
             System.out.println(e.getMessage());
-            System.out.println(e.getStackTrace());
+            //System.out.println(e.getStackTrace());
         }
     }
 }

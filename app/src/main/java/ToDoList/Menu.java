@@ -1,4 +1,4 @@
-package javaToDoList;
+package main.java.ToDoList;
 
 
 

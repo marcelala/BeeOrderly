@@ -5,7 +5,6 @@
  * For more details take a look at the 'Building Java & JVM projects' chapter in the Gradle
  * User Manual available at https://docs.gradle.org/6.8.3/userguide/building_java_projects.html
  */
-import groovy.time.TimeCategory
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
@@ -17,48 +16,55 @@ plugins {
     id 'idea'
 }
 
-
-
-/*
-        This shows from where the dependencies are going to be pulled from
-*/
-repositories {
-    // Use JCenter for resolving dependencies.
-    jcenter()
-    //mavenCentral() used on old project
-
-}
-
-
-/*
-    Dependencies are requirements for building your application/library itself
-    Here the dependency is JUnit
- */
-dependencies {
-    // Use JUnit Jupiter API for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
-
-    // Use JUnit Jupiter Engine for testing.
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:29.0-jre'
-}
-
-
 /*
     This specifies a mandatory configuration for the plugin application.
     The configuration shows the entry point of the application/project.
  */
 application {
     // Define the main class for the application.
-    mainClass = 'java.to.do.list.Main'
+    mainClass = 'java.ToDoList.App'
+}
+run{
+    standardInput = System.in
+}
+group 'org.example'
+
+/*
+        This shows from where the dependencies are going to be pulled from
+*/
+repositories {
+    mavenCentral()
 }
 
 
+/*
+    QA : What is this?
+ */
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
 
-tasks.named('test') {
-    // Use junit platform for unit tests.
+/*
+    Dependencies are requirements for building your application/library itself
+    Here the dependency is JUnit
+ */
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
+    implementation 'org.junit.jupiter:junit-jupiter-params:5.7.1'
+    implementation 'org.fusesource.jansi:jansi:2.2.0'
+
+    // This dependency is used by the application.
+    //implementation 'com.google.guava:guava:29.0-jre'
+}
+
+/*
+    For the build to understand that JUnit be used for testing
+ */
+test {
     useJUnitPlatform()
     testLogging {
         events 'PASSED', 'SKIPPED', 'FAILED'

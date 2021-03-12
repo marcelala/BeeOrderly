@@ -6,9 +6,36 @@ package javaToDoList;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.net.StandardSocketOptions;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-    }
-}
+
+    public class TaskTest {
+      //  Task task;
+
+        String validName="Test name";
+        String validProject="Test Project";
+        LocalDate validDeadline=LocalDate.parse("2021-12-31");
+
+
+        /**
+         * This method will execute before executing any Test.
+         * This method will initialize the task object with vaid test parameters.
+         * @throws Exception
+         */
+        public void setUp() throws Exception {
+            try {
+               // task = new Task(validName, validProject, validDeadline);
+            } catch (Exception e) {
+                System.out.println("There are few errors in the testing of Task class");
+                System.out.println("Following message could be helpful to identify the cause:");
+                System.out.println(e.getMessage());
+            }
+        }
+
+
+} }
+

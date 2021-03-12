@@ -1,7 +1,6 @@
-package javaToDoList;
+package main.java.ToDoList;
 
 
-import java.util.Date;
 import java.time.LocalDate;
 import java.io.Serializable;
 import java.time.format.DateTimeFormatter;
@@ -41,11 +40,13 @@ public class Task implements Serializable{
        }
        this.name = name.trim();
     }
+
     //get deadline
    public LocalDate getDeadline(){
 
        return deadline;
    }
+
    // edit a deadline
     public void setDeadline(LocalDate deadline)throws DateTimeException {
         // Throws DateTimeException if past date is given
@@ -56,7 +57,8 @@ public class Task implements Serializable{
         DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.deadline = LocalDate.parse(deadline.format(formattedDate));
     }
-// gets project name
+
+    // gets project name
     public String getProject(){
 
        return this.project;

@@ -1,15 +1,8 @@
-package javaToDoList;
+package main.java.ToDoList;
 
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.time.LocalDate;
-import java.util.Comparator;
 import java.util.Scanner;
 
 
@@ -167,116 +160,28 @@ public class ToDoList{
                 .count();
     }
 
-    /**
-     * Displays all tasks with index numbers
-     */
+/**
+ * Displays all tasks with index numbers
+ */
     public void displayAllTasksWithIndex() {
-        String displayFormat = "%-4s%-35s %-20s %-10s %-10s";
+     String displayFormat = "%-4s%-35s %-20s %-10s %-10s";
 
-        if (taskList.size()>0) {
-            System.out.println(String.format(displayFormat,"NUM","Name","Project","Deadline","Completed"));
-            System.out.println(String.format(displayFormat,"===","=====","=======","========","========="));
-        } else {
-            System.out.println("You haven't added any tasks yet!");
-        }
+     if (taskList.size()>0) {
+     System.out.println(String.format(displayFormat,"NUM","Name","Project","Deadline","Completed"));
+     System.out.println(String.format(displayFormat,"===","=====","=======","========","========="));
+     } else {
+     System.out.println("You haven't added any tasks yet!");
+     }
 
-        taskList.stream()
-                .forEach(task -> System.out.println(String.format(displayFormat,
-                        taskList.indexOf(task)+1,
-                        task.getName(),
-                        task.getProject(),
-                        task.getDeadline(),
-                        (task.isDone()?"Yes":"No")
-                )));
-    }
-
-//writes the data of Tasks from ArrayList to data file on tasks.obj
-    public boolean saveToFile(String filename) {
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream(filename);
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-
-            objectOutputStream.writeObject(taskList);
-
-            objectOutputStream.close();
-            fileOutputStream.close();
-            return true;
-
-        } catch (Exception e) {
-            Menu.showMessage(e.getMessage());
-            return false;
-        }
-    }
-
-    //reads the data file from task.obj which contains data of previously saved tasks
-    public boolean readFromFile(String filename) {
-        boolean status = false;
-
-        try {
-            if (!Files.isReadable(Paths.get(filename))) {
-                Menu.showMessage("The data file " + filename + " does not exist");
-                return false;
-            }
-            FileInputStream fileInputStream = new FileInputStream(filename);
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-
-            taskList = (ArrayList<Task>) objectInputStream.readObject();
-
-            objectInputStream.close();
-            fileInputStream.close();
-            return true;
-
-        } catch (Exception e) {
-            Menu.showMessage(e.getMessage());
-            return false;
-        }
-    }
-
-    public void listAllTasks(String sortBy) {
-        Menu.separator('=',75);
-        System.out.println(
-                "Total Tasks = " + taskList.size() +
-                        "\t\t (Completed = " + completedCount() + "\t\t" +
-                        " Not Completed = " + notCompletedCount() +
-                        " )");
-
-        if (sortBy.equals("2")) {
-            String displayFormat = "%-20s %-35s %-10s %-10s";
-
-            if (taskList.size()>0) {
-                System.out.println(String.format(displayFormat,"Project","Name","Deadline","Completed?"));
-                System.out.println(String.format(displayFormat,"=======","=====","========","========="));
-            } else {
-                System.out.println("No tasks to show");
-            }
-
-            taskList.stream()
-                    .sorted(Comparator.comparing(Task::getProject))
-                    .forEach(task -> System.out.println(String.format(displayFormat,task.getProject(),
-                            task.getName(),
-                            task.getDeadline(),
-                            (task.isDone()?"YES":"NO")
-                    )));
-        } else {
-            String displayFormat = "%-10s %-35s %-20s %-10s";
-
-            if (taskList.size() > 0) {
-                System.out.println(String.format(displayFormat,"Deadline","Name","Project" , "COMPLETED"));
-                System.out.println(String.format(displayFormat,"========","=====","=======" , "========="));
-            } else {
-                System.out.println("No tasks to show");
-            }
-
-            taskList.stream()
-                    .sorted(Comparator.comparing(Task::getDeadline))
-                    .forEach(task -> System.out.println(String.format(displayFormat,task.getDeadline(),
-                            task.getName(),
-                            task.getProject(),
-                            (task.isDone() ? "YES" : "NO")
-                    )));
-        }
-    }
-
+     taskList.stream()
+     .forEach(task -> System.out.println(String.format(displayFormat,
+     taskList.indexOf(task)+1,
+     task.getName(),
+     task.getProject(),
+     task.getDeadline(),
+     (task.isDone()?"Yes":"No")
+     )));
+     }
 
 
 
