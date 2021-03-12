@@ -15,7 +15,6 @@ import java.util.Scanner;
 
 
 public class ToDoList{
-    String project;
     private ArrayList<Task> taskList;
 
 
@@ -238,8 +237,8 @@ public class ToDoList{
         System.out.println(
                 "Total Tasks = " + taskList.size() +
                         "\t\t (Completed = " + completedCount() + "\t\t" +
-                        " Not Compeleted = " + notCompletedCount() +
-                        " )"); Menu.separator('=',75);
+                        " Not Completed = " + notCompletedCount() +
+                        " )");
 
         if (sortBy.equals("2")) {
             String displayFormat = "%-20s %-35s %-10s %-10s";
