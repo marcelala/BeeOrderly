@@ -5,20 +5,20 @@ A simple command line JAVA program to create and manage tasks.
 ## Features
 
 Models a task with:
-        - task name
-        - deadline
-        - completion status
-        - project (if any)
-    
+- task name
+- deadline
+- completion status
+- project (if any)
+  
 Displays a collection of tasks that can be sorted
-        - by deadline
-        - by project
+- by deadline
+- by project
     
 Supports the ability to
-        - add a new task
-        - edit a preexisting task
-        - mark a task as done
-        - remove task````
+- add a new task
+- edit a preexisting task
+- mark a task as done
+- remove a task
 
 
 
