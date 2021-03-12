@@ -26,7 +26,7 @@ public abstract class Sort extends ToDoList{
             String displayFormat = "%-20s %-35s %-10s %-10s";
 
             if (taskList.size()>0) {
-                System.out.println(String.format(displayFormat,"PROJECT","TITLE","DUE DATE","COMPLETED"));
+                System.out.println(String.format(displayFormat,"Project","Name","Deadline","Completed?"));
                 System.out.println(String.format(displayFormat,"=======","=====","========","========="));
             } else {
                 System.out.println("No tasks to show");
@@ -43,7 +43,7 @@ public abstract class Sort extends ToDoList{
             String displayFormat = "%-10s %-35s %-20s %-10s";
 
             if (taskList.size() > 0) {
-                System.out.println(String.format(displayFormat,"DUE DATE","TITLE","PROJECT" , "COMPLETED"));
+                System.out.println(String.format(displayFormat,"Deadline","Name","Project" , "COMPLETED"));
                 System.out.println(String.format(displayFormat,"========","=====","=======" , "========="));
             } else {
                 System.out.println("No tasks to show");
