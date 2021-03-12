@@ -33,7 +33,7 @@ public class App {
                 switch (menuChoice) {
                     case "1":
                         Menu.listAllTasksMenu();
-                        //toDoList.listAllTasks(input.nextLine());
+                        toDoList.listAllTasks(input.nextLine());
                         break;
                     case "2":
                         toDoList.readTaskFromUser();

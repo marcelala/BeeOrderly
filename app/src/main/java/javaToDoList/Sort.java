@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 
-public abstract class Sort extends ToDoList{
+public class Sort extends ToDoList{
 
     private ArrayList<Task> taskList;
 
