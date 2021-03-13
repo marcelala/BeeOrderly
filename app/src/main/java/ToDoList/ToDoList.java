@@ -10,12 +10,9 @@ import java.util.Scanner;
 public class ToDoList{
     private ArrayList<Task> taskList;
 
-
-
-
     public ToDoList(){
 
-        taskList = new ArrayList<>();
+        taskList = new ArrayList<Task>();
     }
 
     /**
@@ -28,33 +25,6 @@ public class ToDoList{
         this.taskList.add(new Task (name, project, deadline));
     }
 
-
-    /**
-     * Reads input on terminal to create a Task object and to add in the ArrayList
-     * @return true, if the Tasks object is added to ArrayList, otherwise false
-     */
-    public boolean readTaskFromUser() {
-        Scanner scan = new Scanner(System.in);
-
-        try {
-            System.out.println("Please enter the following details to add a task:");
-            System.out.print(">>> Task name  : ");
-            String title = scan.nextLine();
-            System.out.print(">>> Project name: ");
-            String project = scan.nextLine();
-            System.out.print(">>> Deadline [format: yyyy-mm-dd] : ");
-            LocalDate deadline = LocalDate.parse(scan.nextLine());
-
-            //this.taskList.add(new Task());
-
-            Menu.showMessage("Task is added successfully");
-
-            return true;
-        } catch (Exception e) {
-            Menu.showMessage(e.getMessage());
-            return false;
-        }
-    }
 
 /**
  * Reads input on terminal and updates the Task object in the ArrayList of Tasks
@@ -90,15 +60,14 @@ public class ToDoList{
                 }
 
 
-                Menu.showMessage("The task was " + (isTaskUpdated ? "updated successfully" : "not updated") + ": Returning to Main Menu");
+                Menus.showMessage("The task was " + (isTaskUpdated ? "updated successfully" : "not updated") + ": Returning to Main Menu");
 
                 return true;
             } catch (Exception e) {
-                Menu.showMessage(e.getMessage());
+                Menus.showMessage(e.getMessage());
                 return false;
             }
         }
-
     /**
      * Selects a Task object from ArrayList to edit
      * @param selectedTask Task number that is selected by user from given list to perform editing operations
@@ -119,9 +88,9 @@ public class ToDoList{
 
             Task task = taskList.get(taskIndex);
 
-            Menu.showMessage("Task number " + selectedTask + "  is selected:" + task.formattedStringOfTask());
+            Menus.showMessage("Task number " + selectedTask + "  is selected:" + task.formattedStringOfTask());
 
-            Menu.editTaskMenu();
+            Menus.editTaskMenu();
             Scanner scan = new Scanner(System.in);
             String editChoice = scan.nextLine();
             switch (editChoice) {
@@ -130,36 +99,32 @@ public class ToDoList{
                     break;
                 case "2":
                     task.setDone();
-                    Menu.showMessage("Task number " + selectedTask + " is done! : Returning to Main Menu");
+                    Menus.showMessage("Task number " + selectedTask + " is done! : Returning to Main Menu");
                     break;
                 case "3":
                     taskList.remove(task);
-                    Menu.showMessage("Task number " + selectedTask + " was deleted : Returning to Main Menu");
+                    Menus.showMessage("Task number " + selectedTask + " was deleted : Returning to Main Menu");
                     break;
                 default:
-                    Menu.showMessage("Returning to Main Menu");
+                    Menus.showMessage("Returning to Main Menu");
             }
                 } catch (Exception e) {
-                    Menu.showMessage(e.getMessage());
+                    Menus.showMessage(e.getMessage());
         }
 
     }
-
     //Counts tasks that are done!
     public int completedCount() {
         return (int) taskList.stream()
                 .filter(Task::isDone)
                 .count();
     }
-
     // Counts the number of tasks that are not done
-
     public int notCompletedCount() {
         return (int) taskList.stream()
                 .filter(task -> !task.isDone())
                 .count();
     }
-
 /**
  * Displays all tasks with index numbers
  */
@@ -182,14 +147,4 @@ public class ToDoList{
      (task.isDone()?"Yes":"No")
      )));
      }
-
-
-
-
-
-
-
-
-
-
 }

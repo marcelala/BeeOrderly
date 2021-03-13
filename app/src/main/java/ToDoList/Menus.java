@@ -2,14 +2,14 @@ package main.java.ToDoList;
 
 
 
-public class Menu {
+public class Menus {
 
 //Displays the main menu on terminal
 public static void mainMenu() {
     System.out.println("\nMAIN MENU");
     System.out.println("===========\n");
 
-    System.out.println("Pick an option:");
+    System.out.println("What would you like to do today?");
     System.out.println("(1) Show Task List (filtered by deadline or by project )");
     System.out.println("(2) Add a new task");
     System.out.println("(3) Edit a task (update, mark as done, remove)");
@@ -20,13 +20,13 @@ public static void mainMenu() {
      * Displays the menu to filter tasks by project or deadline
      * for user selection
      */
-    public static void listAllTasksMenu() {
-        System.out.println("\nDisplay All Tasks");
+    public static void displayTasksMenu() {
+        System.out.println("\nHow would you like to view your To-Do Lists");
         System.out.println("===================\n");
         System.out.println("Pick an option:");
-        System.out.println("(1) View task list by deadline"
+        System.out.println("(1) View tasks by deadline"
                 + " [default choice, just press ENTER key]");
-        System.out.println("(2) Show task list by project");
+        System.out.println("(2) View tasks by project");
         System.out.print("\nPlease enter your choice [1-2]: ");
     }
 
@@ -64,8 +64,8 @@ public static void mainMenu() {
      * Goodbye message
      */
     public static void  byeMessage() {
-        System.out.println(">>> Your tasks are saved");
-        System.out.println(">>> Goodbye");
+        System.out.println(">>> Your tasks are saved.");
+        System.out.println(">>> See you soon!");
     }
 
     /**

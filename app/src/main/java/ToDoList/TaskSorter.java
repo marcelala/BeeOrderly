@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 
-public class Sorter {
+public class TaskSorter {
 
     private ArrayList<Task> taskList;
 
@@ -15,12 +15,12 @@ public class Sorter {
      * @param sortBy a string holding a number, "2" for sorting by project, otherwise it will sorty by date
      */
     public void listAllTasks(String sortBy) {
-        Menu.separator('=',75);
+        Menus.separator('=',75);
         System.out.println(
                 "Total Tasks = " + taskList.size() +
-                       // "\t\t (Completed = " + ToDoList.completedCount() + "\t\t" +
-                        //" Not Compeleted = " + notCompletedCount() +
-                        " )"); Menu.separator('=',75);
+                       // "\t\t (Completed = " + taskList.completedCount() + "\t\t" +
+                        //" Not Compeleted = " + taskList.notCompletedCount() +
+                        " )"); Menus.separator('=',75);
 
         if (sortBy.equals("2")) {
             String displayFormat = "%-20s %-35s %-10s %-10s";

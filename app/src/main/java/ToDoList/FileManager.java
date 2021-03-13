@@ -5,17 +5,17 @@ import java.io.*;
 public class FileManager {
 
     private ToDoList taskList;
-    private String path = "src/main/resources/";
-    private String fileName = "taskList.txt";
+    private String path = "app/src/main/resources/";
+    private String fileName = "tasks.txt";
 
 
-    public FileManager(ToDoList taskList) {
-        this.taskList = taskList;
+    public FileManager( ) {
+        this.taskList =  new ToDoList();
     }
 
 
     //writes the data of Tasks from ArrayList to data file on tasks.obj
-    public boolean saveToFile(String fileName) {
+    public boolean saveToFile() {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(path + fileName);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -26,13 +26,13 @@ public class FileManager {
             fileOutputStream.close();
             return true;
         } catch (IOException e) {
-            Menu.showMessage(e.getMessage());
+            Menus.showMessage(e.getMessage());
             return false;
         }
     }
 
     //reads the data file from task.obj which contains data of previously saved tasks
-    public boolean readFromFile(String fileName) {
+    public boolean readFromFile() {
         boolean status = false;
 
         try {
