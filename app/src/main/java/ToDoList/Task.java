@@ -25,7 +25,6 @@ public class Task implements Serializable{
         this.isDone = false;
         this.setDeadline(deadline);
 
-
     }
 
     //returns the task name

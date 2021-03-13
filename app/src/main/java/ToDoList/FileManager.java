@@ -25,7 +25,7 @@ public class FileManager {
             objectOutputStream.close();
             fileOutputStream.close();
             return true;
-        } catch (Exception e) {
+        } catch (IOException e) {
             Menu.showMessage(e.getMessage());
             return false;
         }
@@ -50,6 +50,7 @@ public class FileManager {
             System.out.println("There is a problem loading the file: " + exception);
             return false;
         }
+
     }
 
 

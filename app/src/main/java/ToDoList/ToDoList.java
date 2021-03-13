@@ -44,9 +44,9 @@ public class ToDoList{
             String project = scan.nextLine();
             System.out.print(">>> Deadline [format: yyyy-mm-dd] : ");
             LocalDate deadline = LocalDate.parse(scan.nextLine());
-            scan.close();
 
-            this.taskList.add(new Task(title, project, deadline));
+            //this.taskList.add(new Task());
+
             Menu.showMessage("Task is added successfully");
 
             return true;
@@ -87,7 +87,7 @@ public class ToDoList{
                 if (!(deadline.trim().equals("") || deadline == null)) {
                     task.setDeadline(LocalDate.parse(deadline));
                     isTaskUpdated = true;
-                }             scan.close();
+                }
 
 
                 Menu.showMessage("The task was " + (isTaskUpdated ? "updated successfully" : "not updated") + ": Returning to Main Menu");

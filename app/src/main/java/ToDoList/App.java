@@ -2,6 +2,7 @@ package main.java.ToDoList;
 
 
 import java.util.Scanner;
+import java.nio.file.Path;
 
 
 
@@ -9,9 +10,9 @@ public class App {
     // A string to hold the data file name which contains all tasks and their details
     //public static String filename = "tasks.txt";
     private ToDoList taskList;
+    private Sorter sorter;
 
     public App(){
-        this.taskList = new ToDoList();
 
     }
 
@@ -22,6 +23,9 @@ public class App {
 
         // An object of TodoList to hold all tasks and their data
         ToDoList toDoList = new ToDoList();
+        Sorter sorter = new Sorter();
+        //FileManager fileManager= new FileManager;
+
 
         //A string to hold the choice that will be entered by the user
         String menuChoice = "-10";
@@ -40,7 +44,7 @@ public class App {
                 switch (menuChoice) {
                     case "1":
                         Menu.listAllTasksMenu();
-                       // toDoList.listAllTasks(input.nextLine());
+                        //Sorter.listAllTasks(input.nextLine());
                         break;
                     case "2":
                         toDoList.readTaskFromUser();
@@ -57,7 +61,7 @@ public class App {
 
                     default:
                         Menu.unknownMessage();
-                        input.close();
+                        //input.close();
 
                 }
 
