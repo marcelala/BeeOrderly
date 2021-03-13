@@ -10,12 +10,11 @@ public class FileManager {
 
 
     public FileManager( ) {
-        this.taskList =  new ToDoList();
     }
 
 
     //writes the data of Tasks from ArrayList to data file on tasks.obj
-    public boolean saveToFile() {
+    public void saveToFile() {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(path + fileName);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -24,15 +23,13 @@ public class FileManager {
 
             objectOutputStream.close();
             fileOutputStream.close();
-            return true;
         } catch (IOException e) {
             Menus.showMessage(e.getMessage());
-            return false;
         }
     }
 
     //reads the data file from task.obj which contains data of previously saved tasks
-    public boolean readFromFile() {
+    public void loadFromFile() {
         boolean status = false;
 
         try {
@@ -44,11 +41,9 @@ public class FileManager {
             objectInputStream.close();
             fileInputStream.close();
 
-            return true;
 
         } catch (IOException | ClassNotFoundException exception){
             System.out.println("There is a problem loading the file: " + exception);
-            return false;
         }
 
     }

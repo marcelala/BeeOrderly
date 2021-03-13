@@ -20,10 +20,10 @@ public class Task implements Serializable{
 
     public Task(String name, String project, LocalDate deadline) {
 
-        this.setName(name);
-        this.setProject(project);
+        this.name = name;
+        this.project = project;
         this.isDone = false;
-        this.setDeadline(deadline);
+        this.deadline = deadline;
 
     }
 

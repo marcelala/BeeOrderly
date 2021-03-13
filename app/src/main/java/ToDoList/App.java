@@ -1,33 +1,26 @@
 package main.java.ToDoList;
 
 
+import java.util.ArrayList;
 
 public class App {
     // A string to hold the data file name which contains all tasks and their details
     //public static String filename = "tasks.txt";
-    private ToDoList taskList;
-    private TaskCreator creator;
-    //private TaskEditor editor;
-    //private TaskSorter sorter;
-    private FileManager fileManager;
 
     public App(){
         // An object of TodoList to hold all tasks and their data
-        this.taskList = new ToDoList();
-        //this.sorter = new TaskSorter();
-        this.creator= new TaskCreator();
-        //this.userInput = new UserInput();
-        //this.editor = new TaskEditor();
-        this.fileManager = new FileManager();
-
     }
 
     //main method of the app
     public static void main(String[] args) {
 
         //A string to hold the choice that will be entered by the user
+        App toDoListApp = new App();
+        ToDoList taskList = new ToDoList();
+
         String menuChoice = "-10";
          UserInput userInput= new UserInput();
+
 
         try {
 
@@ -40,20 +33,19 @@ public class App {
                 switch (menuChoice) {
                     case "1":
                         Menus.displayTasksMenu();
-                        //Sorter.listAllTasks(input.nextLine());
+                        new TaskSorter().listAllTasks(UserInput.nextLine());
                         break;
                     case "2":
-                        //UserInput userInput = new UserInput();
-                        TaskCreator creator = new TaskCreator();
-                        creator.createTask();
+                        taskList.createTask();
                         break;
                     case "3":
-                        //taskList.displayAllTasksWithIndex();
+                        new TaskEditor().displayTasksWithIndex();
                         Menus.editTaskSelection();
-                        //taskList.editTask(userInput.nextLine());
+                        new TaskEditor().editTask(UserInput.nextLine());
                         break;
                     case "4":
-                        //fileManager.saveToFile();
+                        FileManager fileManager = new FileManager();
+                        fileManager.saveToFile();
                         break;
 
                     default:
@@ -62,7 +54,7 @@ public class App {
                 }
 
             }
-            //toDoList.saveToFile(filename);
+            //taskList.saveToFile(tasks.txt);
             Menus.byeMessage();
 
         }catch (Exception e) {
