@@ -27,7 +27,7 @@ public class App {
 
         try {
 
-            Menus.showMessage("Let's do this!");
+            Menus.showMessage("Let's get you in order!\n");
             while (!menuChoice.equals("4")) {
                 Menus.mainMenu();
 
@@ -62,7 +62,7 @@ public class App {
 
         }catch (Exception e) {
             Menus.showMessage("UNCAUGHT EXCEPTION THROWN");
-            System.out.println("Problem while trying to write the unsaved data of all tasks in data file");
+            System.out.println("Bzzzzzz... There was a problem while trying to write the unsaved data of all tasks in data file");
             //toDoList.saveToFile(filename);
             System.out.println(e);
         }

@@ -84,11 +84,9 @@ public class Task implements Serializable{
         this.isDone = false;
         return false;
     }
-
-    /**
-     * Gets the task data as formatted string
+    /* Gets the task data as formatted string
      * @return formatted string of all fields of a task
-     */
+    */
     public String formattedStringOfTask() {
         return (
                 "\nTask     : " + name +

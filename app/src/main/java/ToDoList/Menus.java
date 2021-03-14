@@ -6,14 +6,17 @@ public class Menus {
 
 //Displays the main menu on terminal
 public static void mainMenu() {
-    System.out.println("\nMAIN MENU");
-    System.out.println("===========\n");
+    System.out.println("\n\nWelcome to Bee Organized!\n");
+    System.out.println(">>> Let's get you in order!\n");
+
+
+    System.out.println("\n~~~MAIN MENU~~~\n");
 
     System.out.println("What would you like to do today?");
-    System.out.println("(1) Show Task List (filtered by deadline or by project )");
+    System.out.println("(1) Show your list of saved tasks (filtered by deadline or by project )");
     System.out.println("(2) Add a new task");
-    System.out.println("(3) Edit a task (update, mark as done, remove)");
-    System.out.println("(4) Save and Quit\n");
+    System.out.println("(3) Edit,change status or delete a task");
+    System.out.println("(4) Save and quit\n");
     System.out.print("Please enter your choice [1-4]: ");
 }
     /**
@@ -21,12 +24,12 @@ public static void mainMenu() {
      * for user selection
      */
     public static void displayTasksMenu() {
-        System.out.println("\nHow would you like to view your To-Do Lists");
+        System.out.println("\nHow would you like to view your tasks");
         System.out.println("===================\n");
         System.out.println("Pick an option:");
-        System.out.println("(1) View tasks by deadline"
+        System.out.println("(1) by deadline"
                 + " [default choice, just press ENTER key]");
-        System.out.println("(2) View tasks by project");
+        System.out.println("(2) by project");
         System.out.print("\nPlease enter your choice [1-2]: ");
     }
 
@@ -34,9 +37,8 @@ public static void mainMenu() {
      * Displays a prompt for user to select the task number to EDIT
      */
     public static void editTaskSelection() {
-        System.out.print(">>> Select a task number to EDIT and press ENTER key: ");
+        System.out.print(">>> Select the task number you want to EDIT and press ENTER key: ");
     }
-
     /**
      * Displays the Edit menu options on terminal
      * for user selection
@@ -64,7 +66,7 @@ public static void mainMenu() {
      * Goodbye message
      */
     public static void  byeMessage() {
-        System.out.println(">>> Your tasks are saved.");
+        System.out.println(">>> Bzzzz, your tasks are saved.");
         System.out.println(">>> See you soon!");
     }
 
