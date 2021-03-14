@@ -6,6 +6,7 @@ package main.java.ToDoList;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDate;
+//import java.util.Iterator;
 
 
 public class ToDoList implements Serializable {
@@ -64,9 +65,12 @@ public class ToDoList implements Serializable {
     public ArrayList<Task> asArray() {
         return taskList;
     }
+
+
     //public ArrayList<Task> getTasks(){
       //  return tasks;
     //};
+
 
 
 /**

@@ -1,8 +1,6 @@
 package main.java.ToDoList;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class TaskEditor {
 
@@ -11,18 +9,15 @@ public class TaskEditor {
 
     public TaskEditor(ToDoList taskList){
         this.taskList = taskList;
-
     }
-    /**
-     * Displays all tasks with index numbers
-     */
+    /*Displays all tasks with index numbers */
     public void displayTasksWithIndex() {
 
         String displayFormat = "%-4s%-35s %-20s %-10s %-10s";
         //fileManager.loadFromFile();
         if (taskList.size()>0) {
             System.out.printf((displayFormat) + "%n","NUM","Name","Project","Deadline","Completed");
-            System.out.printf((displayFormat) + "%n","===","=====","=======","========","=========");
+            System.out.printf((displayFormat) + "%n","===","=================","=======","========","=========");
         } else {
             System.out.println("You haven't added any tasks yet!");
         }
@@ -75,7 +70,6 @@ public class TaskEditor {
         } catch (Exception e) {
             Menus.showMessage(e.getMessage());
         }
-
     }
     /**
      * Reads input on terminal and updates the Task object in the ArrayList of Tasks
@@ -83,7 +77,6 @@ public class TaskEditor {
      * @return true, if the Tasks object is updated in ArrayList, otherwise false
      */
     public boolean readTaskFromUserToUpdate(Task task) {
-
      boolean isTaskUpdated = false;
 
         try {
@@ -102,15 +95,12 @@ public class TaskEditor {
      task.setProject(project);
      isTaskUpdated = true;
      }
-
      System.out.print(">>> Deadline [format: yyyy-mm-dd] : ");
      String deadline = UserInput.nextLine();
      if (!(deadline.trim().equals("") || deadline == null)) {
      task.setDeadline(LocalDate.parse(deadline));
      isTaskUpdated = true;
      }
-
-
      Menus.showMessage("The task was " + (isTaskUpdated ? "updated successfully" : "not updated") + ": Returning to Main Menu");
 
      return true;
@@ -119,7 +109,4 @@ public class TaskEditor {
      return false;
      }
      }
-
-
-
 }
