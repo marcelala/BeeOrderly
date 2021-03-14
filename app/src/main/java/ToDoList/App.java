@@ -1,6 +1,9 @@
 package main.java.ToDoList;
 
 
+import com.sun.jdi.request.ExceptionRequest;
+
+import javax.crypto.ExemptionMechanism;
 import java.util.ArrayList;
 
 public class App {
@@ -33,15 +36,15 @@ public class App {
                 switch (menuChoice) {
                     case "1":
                         Menus.displayTasksMenu();
-                        new TaskSorter().listAllTasks(UserInput.nextLine());
+                        new TaskSorter(taskList).listAllTasks(UserInput.nextLine());
                         break;
                     case "2":
                         taskList.createTask();
                         break;
                     case "3":
-                        new TaskEditor().displayTasksWithIndex();
+                        new TaskEditor(taskList).displayTasksWithIndex();
                         Menus.editTaskSelection();
-                        new TaskEditor().editTask(UserInput.nextLine());
+                        new TaskEditor(taskList).editTask(UserInput.nextLine());
                         break;
                     case "4":
                         FileManager fileManager = new FileManager();
@@ -61,8 +64,7 @@ public class App {
             Menus.showMessage("UNCAUGHT EXCEPTION THROWN");
             System.out.println("Problem while trying to write the unsaved data of all tasks in data file");
             //toDoList.saveToFile(filename);
-            System.out.println(e.getMessage());
-            //System.out.println(e.getStackTrace());
+            System.out.println(e);
         }
     }
 }

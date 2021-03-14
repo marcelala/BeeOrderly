@@ -8,7 +8,9 @@ public class TaskSorter {
 
     private ArrayList<Task> taskList;
 
-
+    public TaskSorter(ToDoList taskList){
+        this.taskList = taskList.asArray();
+    }
 
     /**
      * A method to display the contents of ArrayList

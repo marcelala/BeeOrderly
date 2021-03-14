@@ -7,17 +7,16 @@ import java.util.Scanner;
 public class TaskEditor {
 
      ToDoList taskList;
-     ArrayList <Task> tasks;
+     //ArrayList <Task> tasks;
 
-    public TaskEditor(){
-    taskList = new ToDoList();
+    public TaskEditor(ToDoList taskList){
+        this.taskList = taskList;
 
     }
     /**
      * Displays all tasks with index numbers
      */
     public void displayTasksWithIndex() {
-        taskList = new ToDoList();
 
         String displayFormat = "%-4s%-35s %-20s %-10s %-10s";
         //fileManager.loadFromFile();
@@ -28,9 +27,9 @@ public class TaskEditor {
             System.out.println("You haven't added any tasks yet!");
         }
 
-        tasks
+        taskList.asArray()
                 .forEach(task -> System.out.printf((displayFormat) + "%n",
-                        tasks.indexOf(task)+1,
+                        taskList.asArray().indexOf(task)+1,
                         task.getName(),
                         task.getProject(),
                         task.getDeadline(),
@@ -51,11 +50,11 @@ public class TaskEditor {
             }
 
             int taskIndex = Integer.parseInt(selectedTask) - 1;
-            if (taskIndex < 0 || taskIndex > tasks.size()) {
+            if (taskIndex < 0 || taskIndex > taskList.asArray().size()) {
                 throw new ArrayIndexOutOfBoundsException("This task number was not created yet : Returning to Main Menu");
             }
 
-            Task task = tasks.get(taskIndex);
+            Task task = taskList.asArray().get(taskIndex);
 
             Menus.showMessage("Task number " + selectedTask + "  is selected:" + task.formattedStringOfTask());
 
@@ -68,7 +67,7 @@ public class TaskEditor {
                     Menus.showMessage("Task number " + selectedTask + " is done! : Returning to Main Menu");
                 }
                 case "3" -> {
-                    tasks.remove(task);
+                    taskList.asArray().remove(task);
                     Menus.showMessage("Task number " + selectedTask + " was deleted : Returning to Main Menu");
                 }
                 default -> Menus.showMessage("Returning to Main Menu");
