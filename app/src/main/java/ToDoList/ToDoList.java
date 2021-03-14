@@ -63,7 +63,6 @@ public class ToDoList implements Serializable {
                 .count();
     }
 
-
     public ArrayList<Task> asArray() {
         return taskList;
     }

@@ -8,9 +8,11 @@ public class Menus {
 public static void mainMenu() {
     System.out.println("\n\nWelcome to Bee Organized!\n");
     System.out.println(">>> Let's get you in order!\n");
+    System.out.println("===================");
 
 
-    System.out.println("\n~~~MAIN MENU~~~\n");
+    System.out.println("\n*** MAIN MENU ***\n");
+    System.out.println("===================\n");
 
     System.out.println("What would you like to do today?");
     System.out.println("(1) Show your list of saved tasks (filtered by deadline or by project )");

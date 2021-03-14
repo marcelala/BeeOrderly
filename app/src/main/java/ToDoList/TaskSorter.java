@@ -45,7 +45,7 @@ public class TaskSorter {
             String displayFormat = "%-10s %-35s %-20s %-10s";
 
             if (taskList.size() > 0) {
-                System.out.println(String.format(displayFormat,"Deadline","Name","Project" , "COMPLETED"));
+                System.out.println(String.format(displayFormat,"Deadline","Name","Project" , "Completed?"));
                 System.out.println(String.format(displayFormat,"========","=====","=======" , "========="));
             } else {
                 System.out.println("No tasks to show");

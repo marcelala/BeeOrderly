@@ -1,24 +1,18 @@
 package main.java.ToDoList;
 
 
-import com.sun.jdi.request.ExceptionRequest;
-
-import javax.crypto.ExemptionMechanism;
-import java.util.ArrayList;
-
-public class App {
+public class BeeOrganizedApp {
     // A string to hold the data file name which contains all tasks and their details
     //public static String filename = "tasks.txt";
 
-    public App(){
-        // An object of TodoList to hold all tasks and their data
+    public BeeOrganizedApp(){
     }
 
     //main method of the app
     public static void main(String[] args) {
 
         //A string to hold the choice that will be entered by the user
-        App toDoListApp = new App();
+        BeeOrganizedApp toDoListApp = new BeeOrganizedApp();
         ToDoList taskList = new ToDoList();
 
         String menuChoice = "-10";
