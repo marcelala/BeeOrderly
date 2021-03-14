@@ -1,4 +1,4 @@
-![](/Users/marcela/Documents/SDA/java-to-do-list/images/Be Ordrly.gif)
+![](images/Be Ordrly.gif)
 
 # **Bee Orderly**
 
