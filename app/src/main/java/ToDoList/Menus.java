@@ -1,32 +1,37 @@
-package javaToDoList;
+package main.java.ToDoList;
 
 
 
-public class Menu {
+public class Menus {
 
 //Displays the main menu on terminal
 public static void mainMenu() {
-    System.out.println("\nMAIN MENU");
-    System.out.println("===========\n");
+    System.out.println("\n\nWelcome to Bee Orderly!\n");
+    System.out.println(">>> Let's get you in order!\n");
+    System.out.println("===================");
 
-    System.out.println("Pick an option:");
-    System.out.println("(1) Show Task List (filtered by deadline or by project )");
+
+    System.out.println("\n*** MAIN MENU ***\n");
+    System.out.println("===================\n");
+
+    System.out.println("What would you like to do today?");
+    System.out.println("(1) Show your list of saved tasks (filtered by deadline or by project )");
     System.out.println("(2) Add a new task");
-    System.out.println("(3) Edit a task (update, mark as done, remove)");
-    System.out.println("(4) Save and Quit\n");
+    System.out.println("(3) Edit,change status or delete a task");
+    System.out.println("(4) Save and quit\n");
     System.out.print("Please enter your choice [1-4]: ");
 }
     /**
      * Displays the menu to filter tasks by project or deadline
      * for user selection
      */
-    public static void listAllTasksMenu() {
-        System.out.println("\nDisplay All Tasks");
+    public static void displayTasksMenu() {
+        System.out.println("\nHow would you like to view your tasks");
         System.out.println("===================\n");
         System.out.println("Pick an option:");
-        System.out.println("(1) View task list by deadline"
+        System.out.println("(1) by deadline"
                 + " [default choice, just press ENTER key]");
-        System.out.println("(2) Show task list by project");
+        System.out.println("(2) by project");
         System.out.print("\nPlease enter your choice [1-2]: ");
     }
 
@@ -34,9 +39,8 @@ public static void mainMenu() {
      * Displays a prompt for user to select the task number to EDIT
      */
     public static void editTaskSelection() {
-        System.out.print(">>> Select a task number to EDIT and press ENTER key: ");
+        System.out.print(">>> Select the task number you want to EDIT and press ENTER key: ");
     }
-
     /**
      * Displays the Edit menu options on terminal
      * for user selection
@@ -64,8 +68,8 @@ public static void mainMenu() {
      * Goodbye message
      */
     public static void  byeMessage() {
-        System.out.println(">>> All tasks are saved");
-        System.out.println(">>> Goodbye");
+        System.out.println(">>> Bzzzz, your tasks are saved.");
+        System.out.println(">>> See you soon!");
     }
 
     /**
@@ -73,9 +77,18 @@ public static void mainMenu() {
      * from the choices given in main menu
      */
     public static void unknownMessage() {
-        System.out.println(">>> Invalid choice: Please type a number from the menu ");
+        System.out.println(">>> Invalid choice. Please type a number from the menu.");
     }
 
+    /**
+     * This message will print the given character on terminal to given number of times
+     * @param charToPrint a character given in single quote to print, i.e., '='
+     * @param times an integer to repeat printing the given character
+     */
+    public static void separator (char charToPrint, int times) {
+        for (int index = 0; index < times; index++) System.out.print(charToPrint);
+        System.out.println("");
+    }
 
 
 }

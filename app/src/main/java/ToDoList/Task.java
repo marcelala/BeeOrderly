@@ -1,7 +1,6 @@
-package javaToDoList;
+package main.java.ToDoList;
 
 
-import java.util.Date;
 import java.time.LocalDate;
 import java.io.Serializable;
 import java.time.format.DateTimeFormatter;
@@ -21,24 +20,33 @@ public class Task implements Serializable{
 
     public Task(String name, String project, LocalDate deadline) {
 
+        this.name = name;
+        this.project = project;
+        this.isDone = false;
+        this.deadline = deadline;
+
     }
 
     //returns the task name
    public String getName() {
        return this.name;
    }
+
     //sets the name of a task
    public void setName(String name) throws NullPointerException {
        if (name.trim().equals("") || name == null) {
            throw new NullPointerException("REQUIRED: Task name can not be empty.");
        }
-       this.name = name;
+       this.name = name.trim();
     }
 
+    //get deadline
    public LocalDate getDeadline(){
 
        return deadline;
    }
+
+   // edit a deadline
     public void setDeadline(LocalDate deadline)throws DateTimeException {
         // Throws DateTimeException if past date is given
         if (deadline.compareTo(LocalDate.now())<0) {
@@ -49,34 +57,36 @@ public class Task implements Serializable{
         this.deadline = LocalDate.parse(deadline.format(formattedDate));
     }
 
+    // gets project name
     public String getProject(){
 
        return this.project;
     }
+
+    //sets the name of a project
     public void setProject(String project){
-       this.project = project;
+       this.project = project.trim();
 
     }
-
+    // is the task done?
     public boolean isDone() {
 
        return this.isDone;
     }
+
     //marks a task as completed
     public boolean setDone(){
        this.isDone = true;
-       return this.isDone;
+       return true;
     }
     //marks a task as incomplete
     public boolean setNotDone(){
         this.isDone = false;
-        return this.isDone;
+        return false;
     }
-
-    /**
-     * Gets the task data as formatted string
+    /* Gets the task data as formatted string
      * @return formatted string of all fields of a task
-     */
+    */
     public String formattedStringOfTask() {
         return (
                 "\nTask     : " + name +
