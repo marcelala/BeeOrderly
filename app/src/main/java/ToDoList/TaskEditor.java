@@ -14,9 +14,8 @@ public class TaskEditor {
     public void displayTasksWithIndex() {
 
         String displayFormat = "%-4s%-35s %-20s %-10s %-10s";
-        //fileManager.loadFromFile();
         if (taskList.size()>0) {
-            System.out.printf((displayFormat) + "%n","NUM","Name","Project","Deadline","Completed");
+            System.out.printf((displayFormat) + "%n","NUM","Name","Project","Deadline","Completed?");
             System.out.printf((displayFormat) + "%n","===","=================","=======","========","=========");
         } else {
             System.out.println("You haven't added any tasks yet!");

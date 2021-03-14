@@ -6,7 +6,7 @@ public class Menus {
 
 //Displays the main menu on terminal
 public static void mainMenu() {
-    System.out.println("\n\nWelcome to Bee Organized!\n");
+    System.out.println("\n\nWelcome to Bee Orderly!\n");
     System.out.println(">>> Let's get you in order!\n");
     System.out.println("===================");
 
@@ -77,7 +77,7 @@ public static void mainMenu() {
      * from the choices given in main menu
      */
     public static void unknownMessage() {
-        System.out.println(">>> Invalid choice: Please type a number from the menu ");
+        System.out.println(">>> Invalid choice. Please type a number from the menu.");
     }
 
     /**
@@ -86,7 +86,7 @@ public static void mainMenu() {
      * @param times an integer to repeat printing the given character
      */
     public static void separator (char charToPrint, int times) {
-        for (int index=0; index<times; index++) System.out.print(charToPrint);
+        for (int index = 0; index < times; index++) System.out.print(charToPrint);
         System.out.println("");
     }
 

@@ -1,25 +1,27 @@
 package main.java.ToDoList;
 
 
-public class BeeOrganizedApp {
+public class BeeOrderlyApp {
     // A string to hold the data file name which contains all tasks and their details
     //public static String filename = "tasks.txt";
 
-    public BeeOrganizedApp(){
+    public BeeOrderlyApp(){
     }
 
     //main method of the app
     public static void main(String[] args) {
 
         //A string to hold the choice that will be entered by the user
-        BeeOrganizedApp toDoListApp = new BeeOrganizedApp();
-        ToDoList taskList = new ToDoList();
+        BeeOrderlyApp toDoListApp = new BeeOrderlyApp();
+
 
         String menuChoice = "-10";
          UserInput userInput= new UserInput();
 
 
         try {
+            FileManager fileManager = new FileManager();
+            ToDoList taskList = fileManager.loadFromFile();
 
             Menus.showMessage("Let's get you in order!\n");
             while (!menuChoice.equals("4")) {
@@ -34,6 +36,7 @@ public class BeeOrganizedApp {
                         break;
                     case "2":
                         taskList.createTask();
+                        fileManager.saveToFile(taskList);
                         break;
                     case "3":
                         new TaskEditor(taskList).displayTasksWithIndex();
@@ -41,8 +44,7 @@ public class BeeOrganizedApp {
                         new TaskEditor(taskList).editTask(UserInput.nextLine());
                         break;
                     case "4":
-                        FileManager fileManager = new FileManager();
-                        fileManager.saveToFile();
+                        fileManager.saveToFile(taskList);
                         break;
 
                     default:

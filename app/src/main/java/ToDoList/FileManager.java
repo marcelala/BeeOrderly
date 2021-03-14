@@ -1,6 +1,7 @@
 package main.java.ToDoList;
 
 import java.io.*;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class FileManager {
 
@@ -10,11 +11,12 @@ public class FileManager {
 
 
     public FileManager( ) {
+
     }
 
 
     //writes the data of Tasks from ArrayList to data file on tasks.obj
-    public void saveToFile() {
+    public void saveToFile(ToDoList taskList) {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(path + fileName);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -29,7 +31,7 @@ public class FileManager {
     }
 
     //reads the data file from task.obj which contains data of previously saved tasks
-    public void loadFromFile() {
+    public ToDoList loadFromFile() {
         boolean status = false;
 
         try {
@@ -40,10 +42,12 @@ public class FileManager {
 
             objectInputStream.close();
             fileInputStream.close();
+            return taskList;
 
 
         } catch (IOException | ClassNotFoundException exception){
             System.out.println("There is a problem loading the file: " + exception);
+            return new ToDoList();
         }
 
     }
