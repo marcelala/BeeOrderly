@@ -1,4 +1,4 @@
-package main.java.ToDoList;
+package main.java.BeeOrderly;
 
 
 public class BeeOrderlyApp {
@@ -16,11 +16,10 @@ public class BeeOrderlyApp {
 
 
         String menuChoice = "-10";
-         UserInput userInput= new UserInput();
-
-
+        UserInput userInput= new UserInput();
+        FileManager fileManager = new FileManager();
         try {
-            FileManager fileManager = new FileManager();
+
             ToDoList taskList = fileManager.loadFromFile();
 
             Menus.showMessage("Let's get you in order!\n");
@@ -59,7 +58,6 @@ public class BeeOrderlyApp {
         }catch (Exception e) {
             Menus.showMessage("UNCAUGHT EXCEPTION THROWN");
             System.out.println("Bzzzzzz... There was a problem while trying to write the unsaved data of all tasks in data file");
-            //toDoList.saveToFile(filename);
             System.out.println(e);
         }
     }
