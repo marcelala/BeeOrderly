@@ -5,14 +5,12 @@ import java.io.*;
 public class FileManager {
 
     private ToDoList taskList;
-    private String path = "app/src/main/resources/";
-    private String fileName = "tasks.txt";
+    private final String path = "app/src/main/resources/";
+    private final String fileName = "tasks.txt";
 
 
     public FileManager( ) {
-
     }
-
 
     //writes the data of Tasks from ArrayList to data file on tasks.obj
     public void saveToFile(ToDoList taskList) {

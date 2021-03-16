@@ -26,7 +26,7 @@ public class BeeOrderlyApp {
             while (!menuChoice.equals("4")) {
                 Menus.mainMenu();
 
-                menuChoice = userInput.nextLine();
+                menuChoice = UserInput.nextLine();
 
                 switch (menuChoice) {
                     case "1":

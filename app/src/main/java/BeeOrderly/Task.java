@@ -75,14 +75,12 @@ public class Task implements Serializable{
     }
 
     //marks a task as completed
-    public boolean setDone(){
+    public void setDone(){
        this.isDone = true;
-       return true;
     }
     //marks a task as incomplete
-    public boolean setNotDone(){
+    public void setNotDone(){
         this.isDone = false;
-        return false;
     }
     /* Gets the task data as formatted string
      * @return formatted string of all fields of a task

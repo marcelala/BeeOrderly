@@ -23,11 +23,11 @@ public class ToDoList implements Serializable {
 
         try {
             System.out.println("Please enter the following details to add a task:");
-            System.out.print(">>> Task name  : ");
+            System.out.print("> Task name  : ");
             String name = UserInput.nextLine();
-            System.out.print(">>> Project name: ");
+            System.out.print("> Project name: ");
             String project = UserInput.nextLine();
-            System.out.print(">>> Deadline [format: yyyy-mm-dd] : ");
+            System.out.print("> Deadline [format: yyyy-mm-dd] : ");
             LocalDate deadline = LocalDate.parse(UserInput.nextLine());
             /* creating new task
             @param name of a task and it cannot be empty or null.
@@ -36,6 +36,8 @@ public class ToDoList implements Serializable {
             Task newTask= new Task(name, project,deadline);
             addTask(newTask);
             Menus.showMessage("Task added to "+project +" project!");
+            System.out.println("You have completed "+ completeCount() +" task(s) so far! Still got "+ incompleteCount() + " to go.");
+            Menus.showMessage("Reminder: You might wanna checkout your lists, " + overdueCount() + " task(s) could be overdue!");
 
         } catch (Exception e) {
             Menus.showMessage(e.getMessage());

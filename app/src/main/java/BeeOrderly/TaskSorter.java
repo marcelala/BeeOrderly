@@ -19,10 +19,7 @@ public class TaskSorter {
     public void listAllTasks(String sortBy) {
         Menus.separator('=',75);
         System.out.println(
-                "Total Tasks = " + taskList.size() +
-                       //"\t\t (Completed = " + taskList.completedCount() + "\t\t" +
-                        //" Not Compeleted = " + taskList.notCompletedCount() +
-                        " )"); Menus.separator('=',75);
+                "Total Tasks = " + taskList.size()); Menus.separator('=',75);
 
         if (sortBy.equals("2")) {
             String displayFormat = "%-20s %-35s %-10s %-10s";
@@ -30,6 +27,7 @@ public class TaskSorter {
             if (taskList.size()>0) {
                 System.out.println(String.format(displayFormat,"Project","Name","Deadline","Completed?"));
                 System.out.println(String.format(displayFormat,"=======","=====","========","========="));
+
             } else {
                 System.out.println("No tasks to show");
             }
