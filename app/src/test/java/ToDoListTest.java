@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ToDoListTest {
 
     private final ToDoList testToDoList = new ToDoList();
-
     //Set up a ToDoList and create three tasks.
     @BeforeEach
     public void setUp() {

@@ -27,8 +27,4 @@ public class TaskCounter {
                 .filter(task -> task.getDeadline().isBefore(LocalDate.now()))
                 .count();
     }
-
-
-
-
 }
