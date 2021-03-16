@@ -26,12 +26,11 @@ public static void mainMenu() {
      * for user selection
      */
     public static void displayTasksMenu() {
-        System.out.println("\nHow would you like to view your tasks");
+        System.out.println("\nHow would you like to view your tasks?");
         System.out.println("===================\n");
-        System.out.println("Pick an option:");
-        System.out.println("(1) by deadline"
+        System.out.println("(1) By deadline"
                 + " [default choice, just press ENTER key]");
-        System.out.println("(2) by project");
+        System.out.println("(2) By project");
         System.out.print("\nPlease enter your choice [1-2]: ");
     }
 
@@ -48,9 +47,8 @@ public static void mainMenu() {
     public static void editTaskMenu() {
         System.out.println("\nTask Edit Options");
         System.out.println("======================\n");
-        System.out.println("Pick an option:");
         System.out.println("(1) Modify selected task");
-        System.out.println("(2) Mark selected task as COMPLETED");
+        System.out.println("(2) Mark selected task as complete");
         System.out.println("(3) Delete selected task");
         System.out.println("(4) Return to main menu ");
         System.out.print("\nPlease enter your choice [1-4]: ");

@@ -22,7 +22,7 @@ public class ToDoList implements Serializable {
                 @param name of a task and it cannot be empty or null.
                 @param project name of project associated with task, could be an empty string.
                 @param deadline The due date of the task in yyyy-mm-dd format*/
-    public void createTask() {
+    public boolean createTask() {
 
         try {
             System.out.println("Please enter the following details to add a task:");
@@ -36,9 +36,11 @@ public class ToDoList implements Serializable {
             Task newTask= new Task(name, project,deadline);
             addTask(newTask);
             Menus.showMessage("Task added to "+project +" project!");
+            return true;
 
         } catch (Exception e) {
             Menus.showMessage(e.getMessage());
+            return false;
         }
     }
     public int size() {
@@ -49,6 +51,8 @@ public class ToDoList implements Serializable {
         return taskList;
     }
 
-
+    public Task getTask(int index){
+        return taskList.get(index);
+    }
 
 }

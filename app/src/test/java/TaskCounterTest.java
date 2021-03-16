@@ -1,15 +1,10 @@
 import main.java.BeeOrderly.Task;
-import main.java.BeeOrderly.ToDoList;
 import org.junit.jupiter.api.BeforeEach;
-
+import main.java.BeeOrderly.ToDoList;
 import java.time.LocalDate;
 
-public class TaskSorterTest {
-
-
+public class TaskCounterTest {
     private final ToDoList testToDoList = new ToDoList();
-
-
 
     @BeforeEach
     public void setUp() {
@@ -22,5 +17,4 @@ public class TaskSorterTest {
         testToDoList.addTask(new Task("finish him", "IP", LocalDate.parse("2021-03-19")));
         testToDoList.addTask(new Task("finish him", "", LocalDate.parse("2021-03-19")));
     }
-
 }

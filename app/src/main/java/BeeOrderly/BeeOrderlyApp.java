@@ -12,12 +12,11 @@ public class BeeOrderlyApp {
     public static void main(String[] args) {
 
         //A string to hold the choice that will be entered by the user
-        BeeOrderlyApp toDoListApp = new BeeOrderlyApp();
-
 
         String menuChoice = "-10";
-        UserInput userInput= new UserInput();
         FileManager fileManager = new FileManager();
+        UserInput userInput = new UserInput();
+
         try {
 
             ToDoList taskList = fileManager.loadFromFile();
@@ -35,16 +34,16 @@ public class BeeOrderlyApp {
                     case "1":
                         Menus.displayTasksMenu();
                         new TaskSorter(taskList).listAllTasks(UserInput.nextLine());
-                        System.out.println("You have completed "+  taskCounter.completeCount()
+                        System.out.println("\nYou have completed "+  taskCounter.completeCount()
                                 +" task(s) so far! Still got "+ taskCounter.incompleteCount() + " to go.");
-                        Menus.showMessage("Reminder: You might wanna checkout your lists, "
+                        Menus.showMessage("\nReminder: You might wanna checkout your lists, "
                                 + taskCounter.overdueCount() + " task(s) could be overdue!");
                         break;
                     case "2":
                         taskList.createTask();
-                        System.out.println("You have completed "+  taskCounter.completeCount()
+                        System.out.println("\nYou have completed "+  taskCounter.completeCount()
                                 +" task(s) so far! Still got "+ taskCounter.incompleteCount() + " to go.");
-                        Menus.showMessage("Reminder: You might wanna checkout your lists, "
+                        Menus.showMessage("\nReminder: You might wanna checkout your lists, "
                                 + taskCounter.overdueCount() + " task(s) could be overdue!");
                         fileManager.saveToFile(taskList);
                         break;
@@ -61,9 +60,7 @@ public class BeeOrderlyApp {
                         Menus.unknownMessage();
 
                 }
-
             }
-            //taskList.saveToFile(tasks.txt);
             Menus.byeMessage();
 
         }catch (Exception e) {

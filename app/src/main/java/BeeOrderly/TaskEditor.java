@@ -15,7 +15,7 @@ public class TaskEditor {
 
         String displayFormat = "%-4s%-35s %-20s %-20s %-20s";
         if (taskList.size()>0) {
-            System.out.printf((displayFormat) + "%n","NUM","Name","Project","Deadline","Completed?");
+            System.out.printf((displayFormat) + "%n","NUM","TASK","PROJECT","DEADLINE","COMPLETED?");
             System.out.printf((displayFormat) + "%n","===","=================","=======","========","=========");
         } else {
             System.out.println("You haven't added any tasks yet!");
@@ -27,7 +27,7 @@ public class TaskEditor {
                         task.getName(),
                         task.getProject(),
                         task.getDeadline(),
-                        (task.isDone()?"Yes":"No")
+                        (task.isDone()?"Yes":"Not yet")
                 ));
     }
     /**
