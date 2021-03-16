@@ -1,14 +1,14 @@
 package main.java.BeeOrderly;
 
 
-import java.time.LocalDate;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.DateTimeException;
 
 
 
-public class Task implements Serializable{
+public class Task implements Serializable {
     // holds the name of a task and it cannot be empty
     private String name;
     // holds the name of project associated with task, it could be an empty string.
@@ -35,7 +35,7 @@ public class Task implements Serializable{
     //sets the name of a task
    public void setName(String name) throws NullPointerException {
        if (name.trim().equals("") || name == null) {
-           throw new NullPointerException("REQUIRED: Task name can not be empty.");
+           throw new NullPointerException("REQUIRED: Task name cannot be empty.");
        }
        this.name = name.trim();
     }
@@ -59,7 +59,6 @@ public class Task implements Serializable{
 
     // gets project name
     public String getProject(){
-
        return this.project;
     }
 
@@ -75,8 +74,9 @@ public class Task implements Serializable{
     }
 
     //marks a task as completed
-    public void setDone(){
+    public boolean setDone(){
        this.isDone = true;
+       return true;
     }
     //marks a task as incomplete
     public void setNotDone(){
@@ -87,12 +87,10 @@ public class Task implements Serializable{
     */
     public String formattedStringOfTask() {
         return (
-                "\nTask     : " + name +
+                        "\nTask     : " + name +
                         "\nProject   : " + project +
                         "\nStatus    : " + (isDone?"Done":"Not done") +
                         "\nDeadline  : " + deadline +
                         "\n");
     }
-
-
 }

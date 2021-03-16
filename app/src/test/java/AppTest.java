@@ -13,7 +13,7 @@ import java.time.format.DateTimeParseException;
 class AppTest {
 
     public class TaskTest {
-      //  Task task;
+        //  Task task;
 
         String validName="Test name";
         String validProject="Test Project";
@@ -27,7 +27,7 @@ class AppTest {
          */
         public void setUp() throws Exception {
             try {
-               // task = new Task(validName, validProject, validDeadline);
+                // task = new Task(validName, validProject, validDeadline);
             } catch (Exception e) {
                 System.out.println("There are few errors in the testing of Task class");
                 System.out.println("Following message could be helpful to identify the cause:");

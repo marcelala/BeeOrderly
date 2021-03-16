@@ -22,6 +22,9 @@ public class BeeOrderlyApp {
 
             ToDoList taskList = fileManager.loadFromFile();
 
+            TaskCounter taskCounter = new TaskCounter(taskList);
+
+
             Menus.showMessage("Let's get you in order!\n");
             while (!menuChoice.equals("4")) {
                 Menus.mainMenu();
@@ -32,9 +35,17 @@ public class BeeOrderlyApp {
                     case "1":
                         Menus.displayTasksMenu();
                         new TaskSorter(taskList).listAllTasks(UserInput.nextLine());
+                        System.out.println("You have completed "+  taskCounter.completeCount()
+                                +" task(s) so far! Still got "+ taskCounter.incompleteCount() + " to go.");
+                        Menus.showMessage("Reminder: You might wanna checkout your lists, "
+                                + taskCounter.overdueCount() + " task(s) could be overdue!");
                         break;
                     case "2":
                         taskList.createTask();
+                        System.out.println("You have completed "+  taskCounter.completeCount()
+                                +" task(s) so far! Still got "+ taskCounter.incompleteCount() + " to go.");
+                        Menus.showMessage("Reminder: You might wanna checkout your lists, "
+                                + taskCounter.overdueCount() + " task(s) could be overdue!");
                         fileManager.saveToFile(taskList);
                         break;
                     case "3":

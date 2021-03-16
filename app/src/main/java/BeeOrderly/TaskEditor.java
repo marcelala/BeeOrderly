@@ -13,7 +13,7 @@ public class TaskEditor {
     /*Displays all tasks with index numbers */
     public void displayTasksWithIndex() {
 
-        String displayFormat = "%-4s%-35s %-20s %-10s %-10s";
+        String displayFormat = "%-4s%-35s %-20s %-20s %-20s";
         if (taskList.size()>0) {
             System.out.printf((displayFormat) + "%n","NUM","Name","Project","Deadline","Completed?");
             System.out.printf((displayFormat) + "%n","===","=================","=======","========","=========");

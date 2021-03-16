@@ -22,7 +22,7 @@ public class TaskSorter {
                 "Total Tasks = " + taskList.size()); Menus.separator('=',75);
 
         if (sortBy.equals("2")) {
-            String displayFormat = "%-20s %-35s %-10s %-10s";
+            String displayFormat = "%-25s %-35s %-20s %-20s";
 
             if (taskList.size()>0) {
                 System.out.println(String.format(displayFormat,"Project","Name","Deadline","Completed?"));
@@ -40,13 +40,13 @@ public class TaskSorter {
                             (task.isDone()?"YES":"NO")
                     )));
         } else {
-            String displayFormat = "%-10s %-35s %-20s %-10s";
+            String displayFormat = "%-25s %-35s %-20s %-20s";
 
             if (taskList.size() > 0) {
                 System.out.println(String.format(displayFormat,"Deadline","Name","Project" , "Completed?"));
                 System.out.println(String.format(displayFormat,"========","=====","=======" , "========="));
             } else {
-                System.out.println("No tasks to show");
+                System.out.println("You gotta add some tasks first! ");
             }
 
             taskList.stream()

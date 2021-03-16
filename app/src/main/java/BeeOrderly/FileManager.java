@@ -44,6 +44,7 @@ public class FileManager {
 
         } catch (IOException | ClassNotFoundException exception){
             System.out.println("There is a problem loading the file: " + exception);
+            exception.printStackTrace();
             return new ToDoList();
         }
 
