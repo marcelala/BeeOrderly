@@ -4,6 +4,8 @@ import main.java.BeeOrderly.Task;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import java.util.UUID;
+
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -58,6 +60,12 @@ public class TaskTest {
         assertTrue(testTask.setDone());
     }
 
+    @Test
+    @DisplayName("Get task UUID")
+    void getTaskUUID() {
+        testTask = new Task("Test uuid", "uuid project", LocalDate.parse("2021-12-31"));
+        assertEquals(testTask.getUuid().toString(), testTask.getStringUUID(testTask));
+    }
 
 
 }

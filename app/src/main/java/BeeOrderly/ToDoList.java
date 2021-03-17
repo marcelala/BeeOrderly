@@ -8,16 +8,21 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.util.UUID;
+
 
 
 public class ToDoList implements Serializable {
     private final ArrayList<Task> taskList;
     @Serial
     private static final long serialVersionUID= 1L;
+    private static Task task;
+    private static UUID uuid;
 
 
     public ToDoList(){
         taskList = new ArrayList<>();
+
     }
     /**
      * Adds a Task object in ArrayList
@@ -29,6 +34,7 @@ public class ToDoList implements Serializable {
                 @param name of a task and it cannot be empty or null.
                 @param project name of project associated with task, could be an empty string.
                 @param deadline The due date of the task in yyyy-mm-dd format*/
+    //split this method if there's time
     public void createTask() {
 
         try {
@@ -60,5 +66,7 @@ public class ToDoList implements Serializable {
     public Task getTask(int index){
         return taskList.get(index);
     }
-
+    public Task getTaskByUUID(UUID uuid){
+        return task;
+    }
 }

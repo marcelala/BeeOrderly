@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.DateTimeException;
-
+import java.util.UUID;
 
 
 public class Task implements Serializable {
@@ -20,6 +20,9 @@ public class Task implements Serializable {
 	private boolean isDone;
     @Serial
     private static final long serialVersionUID= 1L;
+    //unique task ID
+    private final UUID uuid;
+
 
     public Task(String name, String project, LocalDate deadline) {
 
@@ -27,7 +30,7 @@ public class Task implements Serializable {
         this.project = project;
         this.isDone = false;
         this.deadline = deadline;
-
+        uuid = UUID.randomUUID();
     }
 
     //returns the task name
@@ -96,10 +99,12 @@ public class Task implements Serializable {
                         "\nDeadline  : " + deadline +
                         "\n");
     }
-
-    //public void addTask() {
-    //
-    //
-    //
-    // }
+    //get uuid as a string
+    public String getStringUUID(Task task){
+        return uuid.toString();
+    }
+    //get uuid
+    public UUID getUuid(){
+        return this.uuid;
+    }
 }

@@ -17,12 +17,13 @@ public class TaskSorter {
     }
 
     /**
-     * A method to display the contents of ArrayList
+     * Displays the contents of ArrayList
      * @param sortBy a string holding a number, "2" for sorting by project, otherwise it will sort by date
      */
+    //split this method
     public void sortAllTasks(String sortBy) {
         Menus.separator('=',75);
-        System.out.println("Total Tasks = " + taskList.size()); Menus.separator('=',75);
+        System.out.println("Bee Orderly To-do List \n Total Tasks = " + taskList.size()); Menus.separator('=',75);
 
         if (sortBy.equals("2")) {
             String displayFormat = "%-25s %-35s %-20s %-20s";
