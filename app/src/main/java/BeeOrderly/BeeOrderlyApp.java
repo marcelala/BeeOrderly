@@ -1,12 +1,15 @@
 package main.java.BeeOrderly;
 
 
-public class BeeOrderlyApp {
-    // A string to hold the data file name which contains all tasks and their details
-    //public static String filename = "tasks.txt";
+import main.java.BeeOrderly.helpers.FileManager;
+import main.java.BeeOrderly.helpers.Menus;
+import main.java.BeeOrderly.helpers.UserInput;
+import main.java.BeeOrderly.tools.TaskCounter;
+import main.java.BeeOrderly.tools.TaskEditor;
+import main.java.BeeOrderly.tools.TaskSorter;
 
-    public BeeOrderlyApp(){
-    }
+public class BeeOrderlyApp {
+    public BeeOrderlyApp(){ }
 
     //main method of the app
     public static void main(String[] args) {
@@ -33,39 +36,31 @@ public class BeeOrderlyApp {
                 switch (menuChoice) {
                     case "1":
                         Menus.displayTasksMenu();
-                        new TaskSorter(taskList).listAllTasks(UserInput.nextLine());
-                        System.out.println("\nYou have completed "+  taskCounter.completeCount()
-                                +" task(s) so far! Still got "+ taskCounter.incompleteCount() + " to go.");
-                        Menus.showMessage("\nReminder: You might wanna checkout your lists, "
-                                + taskCounter.overdueCount() + " task(s) could be overdue!");
+                        new TaskSorter(taskList).sortAllTasks(UserInput.nextLine());
+                        taskCounter.printCount();
                         break;
                     case "2":
                         taskList.createTask();
-                        System.out.println("\nYou have completed "+  taskCounter.completeCount()
-                                +" task(s) so far! Still got "+ taskCounter.incompleteCount() + " to go.");
-                        Menus.showMessage("\nReminder: You might wanna checkout your lists, "
-                                + taskCounter.overdueCount() + " task(s) could be overdue!");
+                        taskCounter.printCount();
                         fileManager.saveToFile(taskList);
                         break;
                     case "3":
                         new TaskEditor(taskList).displayTasksWithIndex();
                         Menus.editTaskSelection();
                         new TaskEditor(taskList).editTask(UserInput.nextLine());
+                        taskCounter.printCount();
                         break;
                     case "4":
                         fileManager.saveToFile(taskList);
                         break;
-
                     default:
                         Menus.unknownMessage();
-
                 }
             }
             Menus.byeMessage();
-
         }catch (Exception e) {
             Menus.showMessage("UNCAUGHT EXCEPTION THROWN");
-            System.out.println("Bzzzzzz... There was a problem while trying to write the unsaved data of all tasks in data file");
+            System.out.println("Buzzzzzz... There was a problem while trying to write the unsaved data of all tasks in data file");
             System.out.println(e);
         }
     }

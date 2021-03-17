@@ -1,4 +1,6 @@
-package main.java.BeeOrderly;
+package main.java.BeeOrderly.helpers;
+
+import main.java.BeeOrderly.ToDoList;
 
 import java.io.*;
 
@@ -7,6 +9,8 @@ public class FileManager {
     private ToDoList taskList;
     private final String path = "app/src/main/resources/";
     private final String fileName = "tasks.txt";
+    @Serial
+    private static final long serialVersionUID= 1L;
 
 
     public FileManager( ) {

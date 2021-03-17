@@ -1,4 +1,8 @@
-package main.java.BeeOrderly;
+package main.java.BeeOrderly.tools;
+
+import main.java.BeeOrderly.Task;
+import main.java.BeeOrderly.ToDoList;
+import main.java.BeeOrderly.helpers.Menus;
 
 import java.time.LocalDate;
 
@@ -26,5 +30,12 @@ public class TaskCounter {
         return (int) taskList.asArray().stream()
                 .filter(task -> task.getDeadline().isBefore(LocalDate.now()))
                 .count();
+    }
+
+    public void printCount(){
+        System.out.println("\nYou have completed "+  completeCount()
+                +" task(s) so far! Still got "+ incompleteCount() + " to go.");
+        Menus.showMessage("\nReminder: You might wanna checkout your lists, "
+                + overdueCount() + " task(s) could be overdue!");
     }
 }

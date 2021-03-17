@@ -1,5 +1,5 @@
 import main.java.BeeOrderly.Task;
-import main.java.BeeOrderly.TaskCounter;
+import main.java.BeeOrderly.tools.TaskCounter;
 import org.junit.jupiter.api.BeforeEach;
 import main.java.BeeOrderly.ToDoList;
 import org.junit.jupiter.api.DisplayName;

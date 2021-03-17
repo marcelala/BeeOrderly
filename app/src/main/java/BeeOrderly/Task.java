@@ -1,6 +1,7 @@
 package main.java.BeeOrderly;
 
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -17,6 +18,8 @@ public class Task implements Serializable {
     private LocalDate deadline;
     //if true task is completed
 	private boolean isDone;
+    @Serial
+    private static final long serialVersionUID= 1L;
 
     public Task(String name, String project, LocalDate deadline) {
 
@@ -93,4 +96,10 @@ public class Task implements Serializable {
                         "\nDeadline  : " + deadline +
                         "\n");
     }
+
+    //public void addTask() {
+    //
+    //
+    //
+    // }
 }
