@@ -34,8 +34,8 @@ public class TaskCounter {
 
     public void printCount(){
         System.out.println("\nYou have completed "+  completeCount()
-                +" task(s) so far! Still got "+ incompleteCount() + " to go.");
-        Menus.showMessage("\nReminder: You might wanna checkout your lists, "
+                +" task(s) so far! Still got "+ incompleteCount() + " to go.\n");
+        Menus.showMessage("Reminder: You might wanna checkout your lists, "
                 + overdueCount() + " task(s) could be overdue!");
     }
 }
