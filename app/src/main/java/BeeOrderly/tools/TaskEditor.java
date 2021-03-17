@@ -1,21 +1,26 @@
-package main.java.ToDoList;
+package main.java.BeeOrderly.tools;
+
+import main.java.BeeOrderly.Task;
+import main.java.BeeOrderly.ToDoList;
+import main.java.BeeOrderly.helpers.Menus;
+import main.java.BeeOrderly.helpers.UserInput;
 
 import java.time.LocalDate;
 
 public class TaskEditor {
 
      ToDoList taskList;
-     //ArrayList <Task> tasks;
 
     public TaskEditor(ToDoList taskList){
         this.taskList = taskList;
     }
     /*Displays all tasks with index numbers */
+
     public void displayTasksWithIndex() {
 
-        String displayFormat = "%-4s%-35s %-20s %-10s %-10s";
+        String displayFormat = "%-4s%-35s %-20s %-20s %-20s";
         if (taskList.size()>0) {
-            System.out.printf((displayFormat) + "%n","NUM","Name","Project","Deadline","Completed?");
+            System.out.printf((displayFormat) + "%n","NUM","TASK","PROJECT","DEADLINE","COMPLETED?");
             System.out.printf((displayFormat) + "%n","===","=================","=======","========","=========");
         } else {
             System.out.println("You haven't added any tasks yet!");
@@ -27,7 +32,7 @@ public class TaskEditor {
                         task.getName(),
                         task.getProject(),
                         task.getDeadline(),
-                        (task.isDone()?"Yes":"No")
+                        (task.isDone()?"Yes":"Not yet")
                 ));
     }
     /**
@@ -35,7 +40,8 @@ public class TaskEditor {
      * @param selectedTask Task number that is selected by user from given list to perform editing operations
      * @throws NullPointerException if task number of given as empty string or null
      * @throws ArrayIndexOutOfBoundsException if task number does not fall in index range of ArrayList
-     */
+     improve this method*/
+
     public void editTask(String selectedTask) throws NullPointerException {
         try {
             // checking if the task number is given and empty string or null
@@ -74,10 +80,9 @@ public class TaskEditor {
      * Reads input on terminal and updates the Task object in the ArrayList of Tasks
      * @param task the task object
      * @return true, if the Tasks object is updated in ArrayList, otherwise false
-     */
+     try to split this method*/
     public boolean readTaskFromUserToUpdate(Task task) {
      boolean isTaskUpdated = false;
-
         try {
      System.out.println("Please enter these details to update the task:"
      + "\nIf you do not want to change any field, press ENTER!");

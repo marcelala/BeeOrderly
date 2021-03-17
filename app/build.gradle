@@ -23,13 +23,20 @@ plugins {
  */
 application {
     // Define the main class for the application.
-    mainClass = 'java.ToDoList.App'
+    mainClass = 'java.BeeOrderly.BeeOrderlyApp'
 }
 run{
     standardInput = System.in
 }
 group 'org.example'
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'java.BeeOrderly.BeeOrderlyApp'
+        )
+    }
+}
 /*
         This shows from where the dependencies are going to be pulled from
 */

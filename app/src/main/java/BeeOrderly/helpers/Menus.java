@@ -1,4 +1,4 @@
-package main.java.ToDoList;
+package main.java.BeeOrderly.helpers;
 
 
 
@@ -15,7 +15,7 @@ public static void mainMenu() {
     System.out.println("===================\n");
 
     System.out.println("What would you like to do today?");
-    System.out.println("(1) Show your list of saved tasks (filtered by deadline or by project )");
+    System.out.println("(1) View your list of saved tasks (filtered by deadline or by project)");
     System.out.println("(2) Add a new task");
     System.out.println("(3) Edit,change status or delete a task");
     System.out.println("(4) Save and quit\n");
@@ -26,12 +26,11 @@ public static void mainMenu() {
      * for user selection
      */
     public static void displayTasksMenu() {
-        System.out.println("\nHow would you like to view your tasks");
+        System.out.println("\nHow would you like to view your tasks?");
         System.out.println("===================\n");
-        System.out.println("Pick an option:");
-        System.out.println("(1) by deadline"
+        System.out.println("(1) By deadline"
                 + " [default choice, just press ENTER key]");
-        System.out.println("(2) by project");
+        System.out.println("(2) By project");
         System.out.print("\nPlease enter your choice [1-2]: ");
     }
 
@@ -48,9 +47,8 @@ public static void mainMenu() {
     public static void editTaskMenu() {
         System.out.println("\nTask Edit Options");
         System.out.println("======================\n");
-        System.out.println("Pick an option:");
         System.out.println("(1) Modify selected task");
-        System.out.println("(2) Mark selected task as COMPLETED");
+        System.out.println("(2) Mark selected task as complete");
         System.out.println("(3) Delete selected task");
         System.out.println("(4) Return to main menu ");
         System.out.print("\nPlease enter your choice [1-4]: ");
@@ -68,8 +66,8 @@ public static void mainMenu() {
      * Goodbye message
      */
     public static void  byeMessage() {
-        System.out.println(">>> Bzzzz, your tasks are saved.");
-        System.out.println(">>> See you soon!");
+        System.out.println(">>> Buzzzz, your tasks are saved.");
+        System.out.println(">>> Have a nice day and see you soon!");
     }
 
     /**

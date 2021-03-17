@@ -1,14 +1,15 @@
-package main.java.ToDoList;
+package main.java.BeeOrderly;
 
 
-import java.time.LocalDate;
+import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.DateTimeException;
+import java.util.UUID;
 
 
-
-public class Task implements Serializable{
+public class Task implements Serializable {
     // holds the name of a task and it cannot be empty
     private String name;
     // holds the name of project associated with task, it could be an empty string.
@@ -17,6 +18,11 @@ public class Task implements Serializable{
     private LocalDate deadline;
     //if true task is completed
 	private boolean isDone;
+    @Serial
+    private static final long serialVersionUID= 1L;
+    //unique task ID
+    private final UUID uuid;
+
 
     public Task(String name, String project, LocalDate deadline) {
 
@@ -24,7 +30,7 @@ public class Task implements Serializable{
         this.project = project;
         this.isDone = false;
         this.deadline = deadline;
-
+        uuid = UUID.randomUUID();
     }
 
     //returns the task name
@@ -35,7 +41,7 @@ public class Task implements Serializable{
     //sets the name of a task
    public void setName(String name) throws NullPointerException {
        if (name.trim().equals("") || name == null) {
-           throw new NullPointerException("REQUIRED: Task name can not be empty.");
+           throw new NullPointerException("REQUIRED: Task name cannot be empty.");
        }
        this.name = name.trim();
     }
@@ -59,7 +65,6 @@ public class Task implements Serializable{
 
     // gets project name
     public String getProject(){
-
        return this.project;
     }
 
@@ -80,21 +85,26 @@ public class Task implements Serializable{
        return true;
     }
     //marks a task as incomplete
-    public boolean setNotDone(){
+    public void setNotDone(){
         this.isDone = false;
-        return false;
     }
     /* Gets the task data as formatted string
      * @return formatted string of all fields of a task
     */
     public String formattedStringOfTask() {
         return (
-                "\nTask     : " + name +
+                        "\nTask     : " + name +
                         "\nProject   : " + project +
                         "\nStatus    : " + (isDone?"Done":"Not done") +
                         "\nDeadline  : " + deadline +
                         "\n");
     }
-
-
+    //get uuid as a string
+    public String getStringUUID(Task task){
+        return uuid.toString();
+    }
+    //get uuid
+    public UUID getUuid(){
+        return this.uuid;
+    }
 }
