@@ -83,5 +83,7 @@ Option 4: saves the current task list to file and quits the application. At rest
 
 
 ##Authors and acknowledgments
-Author: Marcela Felix Fortis
+Author: Marcela Felix Fortis 
+
+
 Special thanks to all the TAs and other students for all the support.
