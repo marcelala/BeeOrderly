@@ -1,6 +1,7 @@
 package main.java.BeeOrderly;
 
 
+import main.java.BeeOrderly.display.TaskDisplay;
 import main.java.BeeOrderly.model.Task;
 import main.java.BeeOrderly.tools.FileManager;
 import main.java.BeeOrderly.display.Menus;
@@ -10,14 +11,16 @@ import main.java.BeeOrderly.tools.TaskCounter;
 import main.java.BeeOrderly.tools.TaskEditor;
 import main.java.BeeOrderly.tools.TaskSorter;
 
+import java.util.ArrayList;
+
 public class BeeOrderlyApp {
+
     public BeeOrderlyApp(){ }
 
     //main method of the app
     public static void main(String[] args) {
 
         //A string to hold the choice that will be entered by the user
-
         String menuChoice = "-10";
         FileManager fileManager = new FileManager();
         UserInput userInput = new UserInput();
@@ -38,7 +41,9 @@ public class BeeOrderlyApp {
                 switch (menuChoice) {
                     case "1":
                         Menus.displayTasksMenu();
-                        new TaskSorter(taskList).sortAllTasks(UserInput.nextLine());
+                        String sortOption = UserInput.nextLine();
+                        ArrayList<Task> sortedTasks = new TaskSorter(taskList).sortAllTasks(sortOption);
+                        new TaskDisplay().printTaskList(sortedTasks);
                         taskCounter.printCount();
                         break;
                     case "2":

@@ -1,18 +1,24 @@
 package main.java.BeeOrderly.tools;
 
+import main.java.BeeOrderly.display.TaskDisplay;
 import main.java.BeeOrderly.model.Task;
 import main.java.BeeOrderly.model.ToDoList;
 import main.java.BeeOrderly.display.Menus;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 
 public class TaskSorter {
 
     private final ArrayList<Task> taskList;
+    private TaskDisplay taskDisplay = new TaskDisplay();
 
     public TaskSorter(ToDoList taskList){
+
         this.taskList = taskList.asArray();
     }
 
@@ -21,32 +27,20 @@ public class TaskSorter {
      * @param sortBy a string holding a number, "2" for sorting by project, otherwise it will sort by date
      */
     //split this method
-    public void sortAllTasks(String sortBy) {
+    public ArrayList<Task> sortAllTasks(String sortBy) {
         Menus.separator('=',75);
-        System.out.println("Bee Orderly To-do List \n Total Tasks = " + taskList.size()); Menus.separator('=',75);
+        if (sortBy.equals("2")){
 
-        if (sortBy.equals("2")) {
-            String displayFormat = "%-25s %-35s %-20s %-20s";
-            if (taskList.size()>0) {
-                System.out.printf((displayFormat) + "%n","PROJECT","TASK","DEADLINE","COMPLETED?");
-                System.out.printf((displayFormat) + "%n","=======","=====","========","=========");
-            } else {System.out.println("No tasks to show");}
-            taskList.stream()
+            return taskList.stream()
                     .sorted(Comparator.comparing(Task::getProject))
-                    .forEach(task -> System.out.printf((displayFormat) + "%n",task.getProject(),
-                            task.getName(), task.getDeadline(), (task.isDone()?"Yes":"Not yet")
-                    ));
-        } else {
-            String displayFormat = "%-25s %-35s %-20s %-20s";
-            if (taskList.size() > 0) {
-                System.out.printf((displayFormat) + "%n","DEADLINE","TASK","PROJECT" , "COMPLETED?");
-                System.out.printf((displayFormat) + "%n","========","=====","=======" , "=========");
-            } else {System.out.println("You gotta add some tasks first! ");}
-            taskList.stream()
+                    .collect(Collectors.toCollection(ArrayList::new));
+
+
+    } else {
+
+            return taskList.stream()
                     .sorted(Comparator.comparing(Task::getDeadline))
-                    .forEach(task -> System.out.printf((displayFormat) + "%n",task.getDeadline(),
-                            task.getName(), task.getProject(), (task.isDone() ? "Yes" : "Not yet")
-                    ));
+                    .collect(Collectors.toCollection(ArrayList::new));
         }
     }
 }
