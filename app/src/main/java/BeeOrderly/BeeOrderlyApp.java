@@ -1,8 +1,9 @@
 package main.java.BeeOrderly;
 
 
+import main.java.BeeOrderly.model.Task;
 import main.java.BeeOrderly.tools.FileManager;
-import main.java.BeeOrderly.helpers.Menus;
+import main.java.BeeOrderly.display.Menus;
 import main.java.BeeOrderly.tools.UserInput;
 import main.java.BeeOrderly.model.ToDoList;
 import main.java.BeeOrderly.tools.TaskCounter;
@@ -41,9 +42,15 @@ public class BeeOrderlyApp {
                         taskCounter.printCount();
                         break;
                     case "2":
-                        taskList.createTask();
-                        taskCounter.printCount();
-                        fileManager.saveToFile(taskList);
+                        try {
+                            Task task = userInput.createTask();
+                            taskList.addTask(task);
+                            taskCounter.printCount();
+                            fileManager.saveToFile(taskList);
+                        } catch (Exception e) {
+                            Menus.showMessage("Error creating task: " + e.getMessage());
+                        }
+
                         break;
                     case "3":
                         new TaskEditor(taskList).displayTasksWithIndex();

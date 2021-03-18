@@ -1,4 +1,4 @@
-package main.java.BeeOrderly.helpers;
+package main.java.BeeOrderly.display;
 
 
 
@@ -77,6 +77,11 @@ public static void mainMenu() {
     public static void unknownMessage() {
         System.out.println(">>> Invalid choice. Please type a number from the menu.");
     }
+
+
+
+
+
 
     /**
      * This message will print the given character on terminal to given number of times

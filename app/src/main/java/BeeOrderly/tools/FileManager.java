@@ -1,6 +1,6 @@
 package main.java.BeeOrderly.tools;
 
-import main.java.BeeOrderly.helpers.Menus;
+import main.java.BeeOrderly.display.Menus;
 import main.java.BeeOrderly.model.ToDoList;
 
 import java.io.*;
@@ -47,13 +47,13 @@ public class FileManager {
             return taskList;
 
 
+        } catch (EOFException e) {
+          return new ToDoList();
+
         } catch (IOException | ClassNotFoundException exception){
             System.out.println("There is a problem loading the file: " + exception);
             exception.printStackTrace();
             return new ToDoList();
         }
-
     }
-
-
 }
