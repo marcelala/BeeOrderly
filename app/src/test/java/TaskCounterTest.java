@@ -1,7 +1,7 @@
-import main.java.BeeOrderly.Task;
+import main.java.BeeOrderly.model.Task;
 import main.java.BeeOrderly.tools.TaskCounter;
 import org.junit.jupiter.api.BeforeEach;
-import main.java.BeeOrderly.ToDoList;
+import main.java.BeeOrderly.model.ToDoList;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

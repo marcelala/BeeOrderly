@@ -1,6 +1,7 @@
-package main.java.BeeOrderly.helpers;
+package main.java.BeeOrderly.tools;
 
-import main.java.BeeOrderly.ToDoList;
+import main.java.BeeOrderly.helpers.Menus;
+import main.java.BeeOrderly.model.ToDoList;
 
 import java.io.*;
 

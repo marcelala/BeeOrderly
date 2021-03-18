@@ -45,12 +45,12 @@ To see other functions available with Gradle, execute
 
 ## **Using the application**
 
+### **Main menu**
 
-###Main menu 
 The main menu will offer the user 4 options to choose from.
 ![Main menu](images/screens/Bee%20Orderly%20Main%20Menu.png)
 
-### View task list
+### **View task list**
 Option 1: allows viewing of the task list sorted by project or by deadline respectively.
 
 ![sorted by project](images/screens/option%201%20view%20tasks%20by%20project.png)
@@ -59,14 +59,14 @@ Option 1: allows viewing of the task list sorted by project or by deadline respe
 ![sorted by deadline](images/screens/option%201%20view%20tasks%20by%20deadline.png)
 
 
-### Add tasks
+### **Add tasks**
 Option 2: allows the user to add new tasks to the list by entering a task name, task project and deadline.
 
 
 ![add task](images/screens/option%202%20add%20a%20new%20task.png)
 
 
-### Edit tasks
+### **Edit tasks**
 Option 3: after choosing it the user will view the tasklist in order to select the task to be edited. 
 
 ![select a task](images/screens/option%203%20tasks%20are%20displayed%20for%20selection.png)
@@ -76,7 +76,7 @@ After slection the user will view a submenu which allows users to choose to edit
 ![edit a task](images/screens/option%203%20submenu%20task%20edit%20options.png)
 
 
-### Save and quit task list
+### **Save and quit task list**
 Option 4: saves the current task list to file and quits the application. At restart of the application the saved tasks will be loaded.
 
 ![save and quit](images/screens/option%204%20save%20and%20quit.png)

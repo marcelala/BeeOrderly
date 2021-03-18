@@ -1,8 +1,8 @@
 import java.time.LocalDate;
 import java.util.UUID;
 
-import main.java.BeeOrderly.ToDoList;
-import main.java.BeeOrderly.Task;
+import main.java.BeeOrderly.model.ToDoList;
+import main.java.BeeOrderly.model.Task;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -41,7 +41,7 @@ public class ToDoListTest {
         LocalDate deadline = LocalDate.parse("2021-03-19");
         Task testTask = new Task(name, project,deadline);
         testToDoList.addTask(testTask);
-      //  assertEquals(testTask,testToDoList.getTaskByUUID(testTask.getUuid()));
+        assertEquals(testTask,testToDoList.getTaskByUUID(testTask.getUuid()));
     }
 
 

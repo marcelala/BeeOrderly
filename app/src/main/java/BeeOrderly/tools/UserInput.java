@@ -1,4 +1,4 @@
-package main.java.BeeOrderly.helpers;
+package main.java.BeeOrderly.tools;
 
 
 import java.util.Scanner;

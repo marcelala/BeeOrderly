@@ -1,24 +1,23 @@
-package main.java.BeeOrderly;
+package main.java.BeeOrderly.model;
 
 
 import main.java.BeeOrderly.helpers.Menus;
-import main.java.BeeOrderly.helpers.UserInput;
+import main.java.BeeOrderly.tools.UserInput;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.Optional;
 import java.util.UUID;
-
+import java.util.function.Predicate;
 
 
 public class ToDoList implements Serializable {
     private final ArrayList<Task> taskList;
     @Serial
     private static final long serialVersionUID= 1L;
-    private static Task task;
-    private static UUID uuid;
-
 
     public ToDoList(){
         taskList = new ArrayList<>();
@@ -66,7 +65,10 @@ public class ToDoList implements Serializable {
     public Task getTask(int index){
         return taskList.get(index);
     }
+
     public Task getTaskByUUID(UUID uuid){
-        return task;
+        Optional<Task> taskFound = taskList.stream().filter((task) -> task.getUuid().equals(uuid)).findFirst();
+
+        return taskFound.orElse(null);
     }
 }

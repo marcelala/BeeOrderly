@@ -1,9 +1,10 @@
 package main.java.BeeOrderly;
 
 
-import main.java.BeeOrderly.helpers.FileManager;
+import main.java.BeeOrderly.tools.FileManager;
 import main.java.BeeOrderly.helpers.Menus;
-import main.java.BeeOrderly.helpers.UserInput;
+import main.java.BeeOrderly.tools.UserInput;
+import main.java.BeeOrderly.model.ToDoList;
 import main.java.BeeOrderly.tools.TaskCounter;
 import main.java.BeeOrderly.tools.TaskEditor;
 import main.java.BeeOrderly.tools.TaskSorter;

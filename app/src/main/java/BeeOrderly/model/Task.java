@@ -1,4 +1,4 @@
-package main.java.BeeOrderly;
+package main.java.BeeOrderly.model;
 
 
 import java.io.Serial;
@@ -100,7 +100,7 @@ public class Task implements Serializable {
                         "\n");
     }
     //get uuid as a string
-    public String getStringUUID(Task task){
+    public String getStringUUID(){
         return uuid.toString();
     }
     //get uuid
