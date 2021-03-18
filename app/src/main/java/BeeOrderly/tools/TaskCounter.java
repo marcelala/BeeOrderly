@@ -5,7 +5,12 @@ import main.java.BeeOrderly.model.ToDoList;
 import main.java.BeeOrderly.display.Menus;
 
 import java.time.LocalDate;
-
+/**
+ * The TaskCounter class handles methods for filtering and counting tasks based on completion status
+ * or deadline. It also prints it's main methods.
+ * @author Marcela F
+ * @version 1.0 (2021.03.18)
+ */
 public class TaskCounter {
 
     ToDoList taskList;

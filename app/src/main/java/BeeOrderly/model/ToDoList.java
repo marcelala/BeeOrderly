@@ -6,7 +6,12 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.UUID;
 
-
+/**
+ * The ToDoList class creates an ArrayList of Tasks which are added to the Arraylist. It's methods allow the
+ * application to add tasks and retrieve them.
+ * @author Marcela F
+ * @version 1.0 (2021.03.18)
+ */
 public class ToDoList implements Serializable {
     private final ArrayList<Task> taskList;
     @Serial

@@ -1,21 +1,23 @@
 package main.java.BeeOrderly.tools;
 
-import main.java.BeeOrderly.display.TaskDisplay;
 import main.java.BeeOrderly.model.Task;
 import main.java.BeeOrderly.model.ToDoList;
 import main.java.BeeOrderly.display.Menus;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * The TaskSorter class handles methods for sorting Task objects. Sorting is performed
+ * either by project or deadline.
+ * @author Marcela F
+ * @version 1.0 (2021.03.18)
+ */
 
 public class TaskSorter {
 
     private final ArrayList<Task> taskList;
-    private TaskDisplay taskDisplay = new TaskDisplay();
 
     public TaskSorter(ToDoList taskList){
 

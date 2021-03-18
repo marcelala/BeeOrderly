@@ -5,7 +5,11 @@ import main.java.BeeOrderly.model.Task;
 
 import java.time.LocalDate;
 import java.util.Scanner;
-
+/**
+ * The UserInput class handles the scanners that read user input as well as methods that require them.
+ * @author Marcela F
+ * @version 1.0 (2021.03.18)
+ */
 public class UserInput {
     private static Scanner scan;
 
@@ -29,4 +33,5 @@ public class UserInput {
 
         return new Task(name, project,deadline);
     }
+
 }

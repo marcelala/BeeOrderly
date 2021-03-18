@@ -1,6 +1,10 @@
 package main.java.BeeOrderly.display;
 
-
+/**
+ * The Menu class prints the menus of the app and some other important messages
+ * @author Marcela F
+ * @version 1.0 (2021.03.18)
+ */
 
 public class Menus {
 

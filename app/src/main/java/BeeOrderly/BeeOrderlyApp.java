@@ -12,7 +12,11 @@ import main.java.BeeOrderly.tools.TaskEditor;
 import main.java.BeeOrderly.tools.TaskSorter;
 
 import java.util.ArrayList;
-
+/**
+ * The Main class contains the Main Menu.
+ * @author Marcela F
+ * @version 1.0 (2021.03.18)
+ */
 public class BeeOrderlyApp {
 
     public BeeOrderlyApp(){ }
@@ -39,14 +43,16 @@ public class BeeOrderlyApp {
                 menuChoice = UserInput.nextLine();
 
                 switch (menuChoice) {
+                    //(1) view tasks sorted by project or deadline
                     case "1":
                         Menus.displayTasksMenu();
                         String sortOption = UserInput.nextLine();
                         ArrayList<Task> sortedTasks = new TaskSorter(taskList).sortAllTasks(sortOption);
-                        new TaskDisplay().printTaskList(sortedTasks);
+                        new TaskDisplay().printSortedTaskList(sortedTasks);
                         taskCounter.printCount();
                         break;
-                    case "2":
+                        //(2) add a new task
+                        case "2":
                         try {
                             Task task = userInput.createTask();
                             taskList.addTask(task);
@@ -55,14 +61,15 @@ public class BeeOrderlyApp {
                         } catch (Exception e) {
                             Menus.showMessage("Error creating task: " + e.getMessage());
                         }
-
                         break;
-                    case "3":
-                        new TaskEditor(taskList).displayTasksWithIndex();
+                        //(3) edit or remove tasks
+                        case "3":
+                        new TaskDisplay().printTasksWithIndex(taskList);
                         Menus.editTaskSelection();
                         new TaskEditor(taskList).editTask(UserInput.nextLine());
                         taskCounter.printCount();
                         break;
+                        //(4) save and quit
                     case "4":
                         fileManager.saveToFile(taskList);
                         break;
