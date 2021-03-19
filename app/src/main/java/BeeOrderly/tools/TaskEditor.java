@@ -5,6 +5,7 @@ import main.java.BeeOrderly.model.ToDoList;
 import main.java.BeeOrderly.display.Menus;
 
 import java.time.LocalDate;
+
 /**
  * The TaskEditor class handles methods for editing, removing or changing the status of Task objects.
  *
@@ -13,18 +14,20 @@ import java.time.LocalDate;
  */
 public class TaskEditor {
 
-     ToDoList taskList;
+    ToDoList taskList;
 
-    public TaskEditor(ToDoList taskList){
+    public TaskEditor(ToDoList taskList) {
         this.taskList = taskList;
     }
 
     /**
      * Selects a Task object from ArrayList to edit
+     *
      * @param selectedTask Task number that is selected by user from given list to perform editing operations
-     * @throws NullPointerException if task number of given as empty string or null
+     * @throws NullPointerException           if task number of given as empty string or null
      * @throws ArrayIndexOutOfBoundsException if task number does not fall in index range of ArrayList
-     improve this method*/
+     *                                        improve this method
+     */
 //polish this method
     public void editTask(String selectedTask) throws NullPointerException {
         try {
@@ -58,41 +61,57 @@ public class TaskEditor {
             Menus.showMessage(e.getMessage());
         }
     }
+
     /**
      * Reads input on terminal and updates the Task object in the ArrayList of Tasks
+     *
      * @param task the task object
-     * @return true, if the Tasks object is updated in ArrayList, otherwise false
-     try to split this method*/
-    public boolean readTaskFromUserToUpdate(Task task) {
-     boolean isTaskUpdated = false;
+     */
+    public void readTaskFromUserToUpdate(Task task) {
+          boolean isTaskUpdated;
+
         try {
-     System.out.println("Please enter these details to update the task:"
-     + "\nIf you do not want to change any field, press ENTER!");
-     System.out.print(">>> Task name  : ");
-     String name = UserInput.nextLine();
-     if (!(name.trim().equals("") || name == null)) {
-     task.setName(name);
-     isTaskUpdated = true;
-     }
+               isTaskUpdated = renameTask(task);
 
-     System.out.print(">>> Project Name: ");
-     String project = UserInput.nextLine();
-     if (!(project.trim().equals("") || project == null)) {
-     task.setProject(project);
-     isTaskUpdated = true;
-     }
-     System.out.print(">>> Deadline [format: yyyy-mm-dd] : ");
-     String deadline = UserInput.nextLine();
-     if (!(deadline.trim().equals("") || deadline == null)) {
-     task.setDeadline(LocalDate.parse(deadline));
-     isTaskUpdated = true;
-     }
-     Menus.showMessage("The task was " + (isTaskUpdated ? "updated successfully" : "not updated") + ": Returning to Main Menu");
+               isTaskUpdated = renameProject(task) || isTaskUpdated ;
 
-     return true;
-     } catch (Exception e) {
-     Menus.showMessage(e.getMessage());
-     return false;
-     }
-     }
+               isTaskUpdated = updateDeadline(task) || isTaskUpdated;
+
+            Menus.showMessage("The task was " + (isTaskUpdated ? "updated successfully" : "not updated") +
+                    ": Returning to Main Menu");
+        } catch (Exception e) {
+            Menus.showMessage(e.getMessage());
+        }
+    }
+    public boolean renameTask(Task task) {
+        System.out.println("Please enter these details to update the task:"
+                + "\nIf you do not want to change any field, press ENTER!");
+        System.out.print(">>> Task name  : ");
+        String name = UserInput.nextLine();
+        if (!(name.trim().equals("") || name == null)) {
+            task.setName(name);
+         return true;
+        }
+        return false;
+    }
+
+    public boolean renameProject(Task task) {
+        System.out.print(">>> Project Name: ");
+        String project = UserInput.nextLine();
+        if (!(project.trim().equals("") || project == null)) {
+            task.setProject(project);
+             return true;
+        }
+        return false;
+    }
+
+    public boolean updateDeadline(Task task) {
+        System.out.print(">>> Deadline [format: yyyy-mm-dd] : ");
+        String deadline = UserInput.nextLine();
+        if (!(deadline.trim().equals("") || deadline == null)) {
+            task.setDeadline(LocalDate.parse(deadline));
+            return true;
+        }
+        return false;
+    }
 }
