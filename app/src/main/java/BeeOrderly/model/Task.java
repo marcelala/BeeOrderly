@@ -1,4 +1,4 @@
-package main.java.BeeOrderly;
+package main.java.BeeOrderly.model;
 
 
 import java.io.Serial;
@@ -8,7 +8,11 @@ import java.time.format.DateTimeFormatter;
 import java.time.DateTimeException;
 import java.util.UUID;
 
-
+/**
+ * The Task class defines Task objects.
+ * @author Marcela F
+ * @version 1.0 (2021.03.18)
+ */
 public class Task implements Serializable {
     // holds the name of a task and it cannot be empty
     private String name;
@@ -100,7 +104,7 @@ public class Task implements Serializable {
                         "\n");
     }
     //get uuid as a string
-    public String getStringUUID(Task task){
+    public String getStringUUID(){
         return uuid.toString();
     }
     //get uuid

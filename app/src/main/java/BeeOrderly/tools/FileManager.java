@@ -1,9 +1,14 @@
-package main.java.BeeOrderly.helpers;
+package main.java.BeeOrderly.tools;
 
-import main.java.BeeOrderly.ToDoList;
+import main.java.BeeOrderly.display.Menus;
+import main.java.BeeOrderly.model.ToDoList;
 
 import java.io.*;
-
+/**
+ * The FileManager class handles reading and writing tasks' data to file.
+ * @author Marcela F
+ * @version 1.0 (2021.03.18)
+ */
 public class FileManager {
 
     private ToDoList taskList;
@@ -16,7 +21,7 @@ public class FileManager {
     public FileManager( ) {
     }
 
-    //writes the data of Tasks from ArrayList to data file on tasks.obj
+    //writes the data of Tasks from ArrayList to data file on tasks.txt
     public void saveToFile(ToDoList taskList) {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(path + fileName);
@@ -31,7 +36,7 @@ public class FileManager {
         }
     }
 
-    //reads the data file from task.obj which contains data of previously saved tasks
+    //reads the data file from task.txt which contains data of previously saved tasks
     public ToDoList loadFromFile() {
         boolean status = false;
 
@@ -46,13 +51,13 @@ public class FileManager {
             return taskList;
 
 
+        } catch (EOFException e) {
+          return new ToDoList();
+
         } catch (IOException | ClassNotFoundException exception){
             System.out.println("There is a problem loading the file: " + exception);
             exception.printStackTrace();
             return new ToDoList();
         }
-
     }
-
-
 }

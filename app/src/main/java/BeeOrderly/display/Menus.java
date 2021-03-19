@@ -1,6 +1,10 @@
-package main.java.BeeOrderly.helpers;
+package main.java.BeeOrderly.display;
 
-
+/**
+ * The Menu class prints the menus of the app and some other important messages
+ * @author Marcela F
+ * @version 1.0 (2021.03.18)
+ */
 
 public class Menus {
 
@@ -77,6 +81,11 @@ public static void mainMenu() {
     public static void unknownMessage() {
         System.out.println(">>> Invalid choice. Please type a number from the menu.");
     }
+
+
+
+
+
 
     /**
      * This message will print the given character on terminal to given number of times
