@@ -28,7 +28,6 @@ public class TaskEditor {
      * @throws ArrayIndexOutOfBoundsException if task number does not fall in index range of ArrayList
      *                                        improve this method
      */
-//polish this method
     public void editTask(String selectedTask) throws NullPointerException {
         try {
             // checking if the task number is given and empty string or null
@@ -83,7 +82,7 @@ public class TaskEditor {
             Menus.showMessage(e.getMessage());
         }
     }
-    public boolean renameTask(Task task) {
+    public static boolean renameTask(Task task) {
         System.out.println("Please enter these details to update the task:"
                 + "\nIf you do not want to change any field, press ENTER!");
         System.out.print(">>> Task name  : ");
